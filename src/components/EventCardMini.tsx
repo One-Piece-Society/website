@@ -21,7 +21,7 @@ Snacks and prizes up for grabs too! 🏆
   image = "https://media.discordapp.net/attachments/979629340973203456/994581158698422313/IMG_3511.jpg",
 }) => {
   return (
-    <div className="flex h-fit w-72 snap-x snap-center flex-col rounded-2xl border-2 border-white/40 bg-white/10 drop-shadow-2xl backdrop-blur md:h-full md:w-full md:flex-row">
+    <div className="flex h-fit w-72 snap-x snap-center flex-col rounded-2xl border-2 border-white/40 bg-gradient-to-br from-white/10 to-white/20 drop-shadow-md backdrop-blur md:h-full md:w-full md:flex-row">
       <Image
         alt="event"
         src={image}
@@ -34,7 +34,7 @@ Snacks and prizes up for grabs too! 🏆
           <h1 className="text-2xl font-semibold md:text-4xl">{title}</h1>
           <p className="py-2 ">{description.slice(0, 180)} ...</p>
         </div>
-        <div className="h-fit rounded-b-2xl border-t-2 border-white/40 bg-white/10 md:rounded-b-none md:rounded-br-2xl">
+        <div className="h-fit rounded-b-2xl border-t-2 border-white/40 bg-gradient-to-tl from-white/10 to-white/20 md:rounded-b-none md:rounded-br-2xl">
           <div className="p-4">Date: {date.toDateString()}</div>
         </div>
       </div>
