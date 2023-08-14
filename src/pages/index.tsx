@@ -4,6 +4,7 @@ const Home = () => {
       <video
         className="-z-50 h-screen w-full object-cover"
         autoPlay
+        loop
         muted
         playsInline
       >
