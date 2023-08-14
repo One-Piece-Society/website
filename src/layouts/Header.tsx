@@ -1,4 +1,5 @@
 import { Bars3Icon } from "@heroicons/react/24/solid";
+import Image from "next/image";
 const Header = () => {
   const links = [
     {
@@ -15,9 +16,17 @@ const Header = () => {
     },
   ];
   return (
-    <div className="fixed z-50 flex w-full flex-row justify-between px-8 py-4 backdrop-blur">
-      <h1 className=" text-2xl italic">OPSOC</h1>
-      <div className="hidden flex-row space-x-16 md:flex">
+    <div className="fixed z-50 flex h-fit w-full flex-row justify-between px-4 backdrop-blur md:px-8 ">
+      <Image
+        alt="logo"
+        src={
+          "https://media.discordapp.net/attachments/956904556132962334/957114784036319242/One_Piece_Logo_C_fixed.png"
+        }
+        height={500}
+        width={500}
+        className="h-20 w-fit object-contain"
+      />
+      <div className="hidden h-full flex-row items-center space-x-16 md:flex">
         {links.map((link, index) => (
           <p key={index} className="text-2xl">
             {link.name}

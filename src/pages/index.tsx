@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <Layout>
       <section>
-        {/* Videos will always be paused on low battery mode for IOS */}
+        {/* Videos will always be paused on low battery mode for IOS mobiles */}
         <video
           className="-z-50 h-screen w-full object-cover"
           autoPlay
@@ -19,8 +19,8 @@ const Home = () => {
           <source src="/opsoc.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div className="absolute top-0 z-0 flex min-h-screen w-full flex-col items-center justify-center p-4  ">
-          <div className="flex h-fit w-fit flex-col items-center space-y-6 rounded-xl bg-white/10 p-8 text-center drop-shadow-2xl backdrop-blur-sm">
+        <div className="absolute top-0 z-0 flex min-h-screen w-full flex-col items-center justify-center p-4">
+          <div className="flex h-fit w-fit flex-col items-center space-y-6 rounded-xl border-2 border-white/20 bg-white/10 p-8 text-center drop-shadow-2xl backdrop-blur-sm">
             <h1 className="font-serif text-4xl font-semibold italic text-white/95 md:text-8xl">
               One Piece Society
             </h1>
