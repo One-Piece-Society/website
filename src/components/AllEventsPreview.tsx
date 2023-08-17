@@ -29,7 +29,7 @@ const AllEventsPreview = () => {
         ))}
       </div>
 
-      <div className="flex h-fit w-full flex-row justify-center space-x-2 p-4">
+      <div className="flex h-fit w-full flex-row justify-center space-x-2 p-4 md:hidden">
         {EventData.map((_event, i) => (
           <div
             key={i}
