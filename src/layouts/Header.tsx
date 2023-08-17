@@ -1,13 +1,9 @@
 import { Menu, Transition } from "@headlessui/react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import Image from "next/image";
-import Link from "next/link";
+
 const Header = () => {
   const links = [
-    // {
-    //   href: "aboutus",
-    //   name: "About Us",
-    // },
     {
       href: "events",
       name: "Events",
