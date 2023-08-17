@@ -23,15 +23,17 @@ const Header = () => {
             } `}
           >
             <div className="flex flex-row justify-between">
-              <Image
-                alt="logo"
-                src={
-                  "https://media.discordapp.net/attachments/956904556132962334/957114784036319242/One_Piece_Logo_C_fixed.png"
-                }
-                height={500}
-                width={500}
-                className="h-20 w-fit object-contain"
-              />
+              <Menu.Item as="a" href="/">
+                <Image
+                  alt="logo"
+                  src={
+                    "https://media.discordapp.net/attachments/956904556132962334/957114784036319242/One_Piece_Logo_C_fixed.png"
+                  }
+                  height={500}
+                  width={500}
+                  className="h-20 w-fit object-contain"
+                />
+              </Menu.Item>
               <Menu.Button className="block text-2xl focus:outline-none md:hidden">
                 <Bars3Icon className="h-8 w-8 text-white" />
               </Menu.Button>
