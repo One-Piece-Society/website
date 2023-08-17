@@ -8,7 +8,7 @@ const Home = () => {
         {/* Videos will always be paused on low battery mode for IOS mobiles */}
         <video
           className="-z-50 h-screen w-full object-cover"
-          autoPlay
+          //   autoPlay
           loop
           muted
           playsInline
