@@ -5,8 +5,12 @@ export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
-      xs: "350px",
+      xs: "320px",
       ...defaultTheme.screens,
+    },
+    fontFamily: {
+      heading: ["var(--font-Dela-Gothic-One)"],
+      body: ["var(--font-DM-Sans)"],
     },
   },
   plugins: [],
