@@ -12,6 +12,12 @@ export default {
       heading: ["var(--font-Dela-Gothic-One)"],
       body: ["var(--font-DM-Sans)"],
     },
+    extend: {
+      colors: {
+        "primary-red": "#C64A4A",
+        white: "#FFFFFF",
+      },
+    },
   },
   plugins: [],
 } satisfies Config;

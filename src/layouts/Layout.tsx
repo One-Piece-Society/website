@@ -7,7 +7,10 @@ type Props = {
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <main className="flex h-full w-full flex-col justify-between bg-[#2b93d7] text-white">
+    <main
+      className="flex h-full w-full flex-col
+     justify-between bg-primary-red text-white"
+    >
       <div>
         <Header />
         {children}

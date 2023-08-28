@@ -16,7 +16,7 @@ export const DMSans = DM_Sans({
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <main className={`${DelaGothicOne.variable} ${DMSans.variable}`}>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </main>
   );
 };
