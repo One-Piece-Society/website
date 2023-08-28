@@ -28,9 +28,9 @@ const Header = () => {
           }
           height={500}
           width={500}
-          className="h-20 w-fit object-contain"
+          className="h-16 w-fit object-contain"
         />
-        <div className="hidden h-full flex-row space-x-24 py-4 focus:outline-none md:flex">
+        <div className="hidden h-full flex-row space-x-24 py-2 focus:outline-none md:flex">
           {links.map((link) => (
             <Link
               as="a"
@@ -55,19 +55,17 @@ const Header = () => {
             } `}
           >
             <div className="flex flex-row justify-between">
-              <Menu.Items>
-                <Menu.Item key={"home"} href="/" as="a">
-                  <Image
-                    alt="logo"
-                    src={
-                      "https://media.discordapp.net/attachments/956904556132962334/957114784036319242/One_Piece_Logo_C_fixed.png"
-                    }
-                    height={500}
-                    width={500}
-                    className="h-16 w-fit object-contain"
-                  />
-                </Menu.Item>
-              </Menu.Items>
+              <Menu.Item key={"home"} href="/" as="a">
+                <Image
+                  alt="logo"
+                  src={
+                    "https://media.discordapp.net/attachments/956904556132962334/957114784036319242/One_Piece_Logo_C_fixed.png"
+                  }
+                  height={500}
+                  width={500}
+                  className="h-16 w-fit object-contain"
+                />
+              </Menu.Item>
               <Menu.Button className="block text-2xl focus:outline-none md:hidden">
                 <Bars3Icon className="h-8 w-8" />
               </Menu.Button>

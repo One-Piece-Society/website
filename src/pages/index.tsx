@@ -1,3 +1,4 @@
+import EventMangaPages from "~/components/EventMangaPages";
 import Panels from "~/components/Panels";
 import SectionBar from "~/components/SectionBar";
 import Layout from "~/layouts/Layout";
@@ -29,12 +30,17 @@ const Home = () => {
       </section>
       <section
         id="events"
-        className="flex min-h-screen w-full flex-row justify-start"
+        className="flex h-fit w-full flex-col items-center justify-start md:h-screen"
       >
         <SectionBar
           title="Events"
           image="https://12dimension.files.wordpress.com/2019/10/one_piece_ch958_p010-011-e1571959134232.jpg"
         />
+        <div className="flex h-full w-full flex-row justify-center p-2 md:p-8">
+          <div className="h-full w-full md:w-11/12">
+            <EventMangaPages />
+          </div>
+        </div>
       </section>
     </Layout>
   );
