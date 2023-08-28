@@ -1,4 +1,5 @@
 import Panels from "~/components/Panels";
+import SectionBar from "~/components/SectionBar";
 import Layout from "~/layouts/Layout";
 
 const Home = () => {
@@ -26,7 +27,15 @@ const Home = () => {
           <Panels />
         </div>
       </section>
-      <section className="flex h-48 w-full flex-row justify-start border-b-4 border-t-4 border-black px-16"></section>
+      <section
+        id="events"
+        className="flex min-h-screen w-full flex-row justify-start"
+      >
+        <SectionBar
+          title="Events"
+          image="https://12dimension.files.wordpress.com/2019/10/one_piece_ch958_p010-011-e1571959134232.jpg"
+        />
+      </section>
     </Layout>
   );
 };

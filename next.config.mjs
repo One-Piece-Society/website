@@ -23,6 +23,7 @@ const config = {
       "media.licdn.com",
       "cdn.discordapp.com",
       "www.animenarrative.com",
+      "12dimension.files.wordpress.com",
     ],
   },
 };
