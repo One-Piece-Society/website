@@ -25,7 +25,7 @@ const Home = () => {
         <div className="hidden min-h-screen w-2/3 flex-col items-start justify-center bg-fixed md:flex">
           <div className="flex h-full w-full flex-row">
             <div className="panel flex h-full w-1/3  flex-col gap-16">
-              <div className="h-2/3">
+              <div className="h-5/6">
                 <Image
                   alt="op"
                   src="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
@@ -34,7 +34,7 @@ const Home = () => {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className=" h-1/3">
+              <div className=" h-1/6">
                 <Image
                   alt="op"
                   src="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
@@ -45,7 +45,7 @@ const Home = () => {
               </div>
             </div>
             <div className="panel flex h-full w-1/3 flex-col gap-16">
-              <div className=" h-1/3">
+              <div className=" h-1/6">
                 <Image
                   alt="op"
                   src="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
@@ -54,7 +54,7 @@ const Home = () => {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="h-2/3">
+              <div className="h-5/6">
                 <Image
                   alt="op"
                   src="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
@@ -65,7 +65,7 @@ const Home = () => {
               </div>
             </div>
             <div className="panel flex h-full w-1/3  flex-col gap-16">
-              <div className="h-2/3">
+              <div className="h-5/6">
                 <Image
                   alt="op"
                   src="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
@@ -74,7 +74,7 @@ const Home = () => {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className=" h-1/3">
+              <div className=" h-1/6">
                 <Image
                   alt="op"
                   src="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
