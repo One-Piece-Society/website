@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Panels from "~/components/Panels";
 import Layout from "~/layouts/Layout";
 
 const Home = () => {
@@ -23,68 +23,7 @@ const Home = () => {
           </button>
         </div>
         <div className="hidden min-h-screen w-2/3 flex-col items-start justify-center bg-fixed md:flex">
-          <div className="flex h-full w-full flex-row">
-            <div className="panel flex h-full w-1/3  flex-col gap-16">
-              <div className="h-5/6">
-                <Image
-                  alt="op"
-                  src="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
-                  width={1080}
-                  height={1130}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <div className=" h-1/6">
-                <Image
-                  alt="op"
-                  src="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
-                  width={1080}
-                  height={1130}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </div>
-            <div className="panel flex h-full w-1/3 flex-col gap-16">
-              <div className=" h-1/6">
-                <Image
-                  alt="op"
-                  src="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
-                  width={1080}
-                  height={1130}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <div className="h-5/6">
-                <Image
-                  alt="op"
-                  src="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
-                  width={1080}
-                  height={1130}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </div>
-            <div className="panel flex h-full w-1/3  flex-col gap-16">
-              <div className="h-5/6">
-                <Image
-                  alt="op"
-                  src="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
-                  width={1080}
-                  height={1130}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <div className=" h-1/6">
-                <Image
-                  alt="op"
-                  src="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
-                  width={1080}
-                  height={1130}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
+          <Panels />
         </div>
       </section>
       <section className="flex h-48 w-full flex-row justify-start border-b-4 border-t-4 border-black px-16"></section>
