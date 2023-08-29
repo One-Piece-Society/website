@@ -10,11 +10,11 @@ const Home = () => {
     <Layout>
       <section className="flex min-h-screen w-full flex-row justify-start px-4 pt-4 md:px-16 md:pt-16">
         <div className="flex min-h-screen w-full flex-col items-start justify-center  md:w-1/3">
-          <h1 className="pb-4 pt-24 font-heading text-6xl leading-normal drop-shadow-lg">
+          <h1 className="pb-4 pt-24 font-heading text-3xl leading-normal drop-shadow-lg md:text-6xl">
             One Piece Society
           </h1>
-          <h2 className="font-body text-3xl">UNSW, Arc Supported</h2>
-          <p className="py-6 font-body text-xl font-extralight leading-normal">
+          <h2 className="font-body text-xl md:text-3xl">UNSW, Arc Supported</h2>
+          <p className="py-6 font-body text-base font-extralight leading-normal md:text-xl">
             Dive into the world of One Piece with the UNSW Society! Join us for
             exciting discussions, anime screenings, and vibrant events that
             capture the essence of Oda&apos;s masterpiece. Whether you&apos;re a
@@ -23,7 +23,7 @@ const Home = () => {
             Grand Line itself!
           </p>
           <button className="border border-white bg-primary-red px-8 py-4 drop-shadow-lg">
-            <p className="font-body text-xl">Join our Discord</p>
+            <p className="font-body text-base md:text-xl">Join our Discord</p>
           </button>
         </div>
         <div className="hidden min-h-screen w-2/3 flex-col items-start justify-center bg-fixed md:flex">

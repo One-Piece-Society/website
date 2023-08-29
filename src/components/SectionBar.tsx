@@ -6,7 +6,7 @@ type Props = {
 const SectionBar: React.FC<Props> = ({ title, image }) => {
   return (
     <div className="relative h-fit w-full border-y-4 border-black">
-      <h1 className="absolute z-40 flex h-24 w-full flex-col items-start justify-center bg-gradient-to-r from-black to-black/40 px-8 text-left font-heading text-6xl md:px-16">
+      <h1 className="absolute z-40 flex h-24 w-full flex-col items-start justify-center bg-gradient-to-r from-black to-black/40 px-8 text-left font-heading text-3xl md:px-16 md:text-6xl">
         {title}
       </h1>
       {image && (
