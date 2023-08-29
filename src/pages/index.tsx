@@ -2,6 +2,7 @@ import EventMangaPages from "~/components/EventMangaPages";
 import EventTile from "~/components/EventTile";
 import Panels from "~/components/Panels";
 import SectionBar from "~/components/SectionBar";
+import SocialsTiles from "~/components/SocialsTiles";
 import Layout from "~/layouts/Layout";
 
 const Home = () => {
@@ -31,7 +32,7 @@ const Home = () => {
       </section>
       <section
         id="events"
-        className="flex h-full w-full flex-col items-center justify-start "
+        className="flex h-full w-full flex-col items-center justify-start py-16 md:py-0"
       >
         <SectionBar
           title="Events"
@@ -47,13 +48,18 @@ const Home = () => {
         </div>
       </section>
       <section
-        id="events"
+        id="social"
         className="flex min-h-screen w-full flex-col items-center justify-start md:h-screen"
       >
         <SectionBar
-          title="Team"
+          title="Socials"
           image="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
         />
+        <div className="flex h-full w-full flex-row justify-center p-2 md:p-8">
+          <div className="h-full w-full py-16 md:w-11/12">
+            <SocialsTiles />
+          </div>
+        </div>
       </section>
     </Layout>
   );

@@ -10,12 +10,12 @@ const Header = () => {
       name: "Events",
     },
     {
-      href: "team",
-      name: "Team",
-    },
-    {
       href: "socials",
       name: "Socials",
+    },
+    {
+      href: "team",
+      name: "Team",
     },
   ];
   return (

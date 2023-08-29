@@ -6,3 +6,18 @@
     clip-path: polygon(15% 0, 100% 0%, 85% 100%, 0% 100%);
     shape-outside: polygon(15% 0, 100% 0%, 85% 100%, 0% 100%);
 }
+
+.panel1 {
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    shape-outside: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+.panel2 {
+    clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 80%);
+    shape-outside: polygon(0 20%, 100% 0, 100% 100%, 0 80%);
+}
+
+.panel3 {
+    clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
+    shape-outside: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
+}
