@@ -56,7 +56,7 @@ const Home = () => {
           image="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
         />
         <div className="flex h-full w-full flex-row justify-center p-2 md:p-8">
-          <div className="h-full w-full py-16 md:w-11/12">
+          <div className="h-full w-full py-4 md:w-11/12 md:py-16">
             <SocialsTiles />
           </div>
         </div>

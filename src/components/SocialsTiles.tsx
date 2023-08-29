@@ -7,9 +7,9 @@ const SocialsTiles = () => {
       <Link
         target="_blank"
         href="https://discord.gg/USxv58e7PQ"
-        className="panel1 relative flex w-full flex-row items-center transition-all duration-500 hover:scale-105 md:w-3/4 md:-translate-x-8"
+        className="panel1 relative flex w-full flex-row items-center transition-all duration-500 md:w-3/4 md:-translate-x-8 md:hover:scale-105"
       >
-        <div className="static z-40 flex w-full flex-row items-center justify-start gap-2 bg-gradient-to-r from-blue-400  via-blue-400/80 to-blue-400/40 p-8 drop-shadow-lg md:gap-8">
+        <div className="static z-40 flex w-full flex-row items-center justify-start gap-4 bg-gradient-to-r from-blue-400  via-blue-400/80 to-blue-400/40 p-8 drop-shadow-lg md:gap-8">
           <Image
             alt="discord-logo"
             src="https://cdn.discordapp.com/attachments/1092987636035092662/1145974816113967205/636e0a6cc3c481a15a141738_icon_clyde_white_RGB.png"
@@ -32,9 +32,9 @@ const SocialsTiles = () => {
       <Link
         target="_blank"
         href="https://www.facebook.com/onepiecesociety/"
-        className="panel2 relative flex w-full flex-row items-center transition-all duration-500 hover:scale-105 md:w-3/4 md:translate-x-8"
+        className="panel2 relative flex w-full flex-row items-center transition-all duration-500 md:w-3/4 md:translate-x-8 md:hover:scale-105"
       >
-        <div className="static z-40 flex w-full flex-row items-center justify-end gap-2 bg-gradient-to-l from-blue-500 via-blue-500/80 to-blue-500/40 p-8 drop-shadow-lg md:gap-8">
+        <div className="static z-40 flex w-full flex-row items-center justify-end gap-4 bg-gradient-to-l from-blue-500 via-blue-500/80 to-blue-500/40 p-8 drop-shadow-lg md:gap-8">
           <h2 className="text-left font-heading text-3xl md:text-6xl">
             Facebook
           </h2>
@@ -57,9 +57,9 @@ const SocialsTiles = () => {
       <Link
         target="_blank"
         href="https://member.arc.unsw.edu.au/s/clubdetail?clubid=0016F0000459PRd"
-        className="panel3 relative flex w-full flex-row items-center transition-all duration-500 hover:scale-105 md:w-3/4 md:-translate-x-8"
+        className="panel3 relative flex w-full flex-row items-center transition-all duration-500 md:w-3/4 md:-translate-x-8 md:hover:scale-105"
       >
-        <div className="static z-40 flex w-full flex-row items-center justify-start gap-2 bg-gradient-to-r from-green-500 via-green-500/80 to-green-500/40 p-8 drop-shadow-lg md:gap-8">
+        <div className="static z-40 flex w-full flex-row items-center justify-start gap-4 bg-gradient-to-r from-green-500 via-green-500/80 to-green-500/40 p-8 drop-shadow-lg md:gap-8">
           <Image
             alt="arc-logo"
             src="https://media.discordapp.net/attachments/1092987636035092662/1145982066610143262/Arc20Clubs20Logo202019-solid20white.png"
