@@ -1,25 +1,41 @@
 const EventMangaPages = () => {
   return (
-    <div className="flex h-fit w-full flex-col-reverse gap-4 md:h-full md:flex-row md:p-4">
+    <div className="flex h-fit w-full flex-col-reverse gap-4 drop-shadow-lg md:h-full md:flex-row md:p-4">
       {/* Left/Bottom Manga Page */}
       <div className="flex h-screen w-full flex-col gap-4 md:h-full ">
-        <div className="h-1/3 w-full border-4 border-black">a</div>
+        <div className="h-1/2 w-full border-4 border-black bg-primary-red">
+          a
+        </div>
         <div className="flex h-full flex-row gap-4 ">
           <div className="flex w-full flex-col gap-4 ">
-            <div className="h-full w-full border-4 border-black">b</div>
-            <div className="h-full w-full border-4 border-black">c</div>
-            <div className="h-full w-full border-4 border-black">d</div>
+            <div className="h-full w-full border-4 border-black bg-primary-red">
+              b
+            </div>
+            <div className="h-full w-full border-4 border-black bg-primary-red">
+              c
+            </div>
+            {/* <div className="h-full w-full border-4 border-black bg-primary-red">
+              d
+            </div> */}
           </div>
-          <div className="flex w-full border-4 border-black">e</div>
+          <div className="flex w-full border-4 border-black bg-primary-red">
+            e
+          </div>
         </div>
       </div>
       {/* Right/Top Manga Page */}
       <div className="flex h-[50vh] w-full flex-col gap-4 md:h-full ">
         <div className="flex h-full w-full flex-row gap-4 ">
-          <div className="h-full w-1/3 border-4 border-black">f</div>
-          <div className="h-full w-2/3 border-4 border-black">g</div>
+          <div className="h-full w-1/3 border-4 border-black bg-primary-red">
+            f
+          </div>
+          <div className="h-full w-2/3 border-4 border-black bg-primary-red">
+            g
+          </div>
         </div>
-        <div className="flex h-full w-full border-4 border-black">e</div>
+        <div className="flex h-full w-full border-4 border-black bg-primary-red">
+          e
+        </div>
       </div>
     </div>
   );

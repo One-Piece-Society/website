@@ -17,6 +17,9 @@ export default {
         "primary-red": "#C64A4A",
         white: "#FFFFFF",
       },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+      },
     },
   },
   plugins: [],
