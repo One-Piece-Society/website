@@ -3,6 +3,7 @@ import EventTile from "~/components/EventTile";
 import Panels from "~/components/Panels";
 import SectionBar from "~/components/SectionBar";
 import SocialsTiles from "~/components/SocialsTiles";
+import TeamTiles from "~/components/TeamTiles";
 import Layout from "~/layouts/Layout";
 
 const Home = () => {
@@ -49,7 +50,7 @@ const Home = () => {
       </section>
       <section
         id="social"
-        className="flex min-h-screen w-full flex-col items-center justify-start md:h-screen"
+        className="flex min-h-fit w-full flex-col items-center justify-start"
       >
         <SectionBar
           title="Socials"
@@ -58,6 +59,27 @@ const Home = () => {
         <div className="flex h-full w-full flex-row justify-center p-2 md:p-8">
           <div className="h-full w-full py-4 md:w-11/12 md:py-16">
             <SocialsTiles />
+          </div>
+        </div>
+      </section>
+      <section
+        id="team"
+        className="flex h-fit w-full flex-col items-center justify-start"
+      >
+        <SectionBar
+          title="Team"
+          image="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
+        />
+        <div className="flex h-full w-full flex-row justify-center p-2 md:p-8">
+          <div className="h-full w-full py-4 md:container md:py-16">
+            <h1 className="pb-4 font-body text-2xl font-semibold md:pb-8 md:text-5xl">
+              Executives
+            </h1>
+            <TeamTiles />
+            <h1 className="py-4 font-body text-2xl font-semibold md:py-8 md:text-5xl">
+              Subcommittee
+            </h1>
+            <TeamTiles />
           </div>
         </div>
       </section>
