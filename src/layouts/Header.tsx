@@ -1,7 +1,7 @@
 import { Menu, Transition } from "@headlessui/react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import Image from "next/image";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const Header = () => {
   const links = [
@@ -18,6 +18,50 @@ const Header = () => {
       name: "Team",
     },
   ];
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  // scrolls user to end of previous section on click
+  const handleHeadingClick = (sectionId: string) => {
+    const section: HTMLElement | null = document.getElementById(sectionId);
+
+    if (section) {
+      const sections = document.querySelectorAll("section");
+      let targetSection: HTMLElement | null = null;
+
+      for (let i = 0; i < sections.length; i++) {
+        if (sections[i]?.id === sectionId) {
+          if (i > 0) {
+            targetSection = sections[i - 1]!;
+          }
+          break;
+        }
+      }
+
+      if (targetSection) {
+        const scrollPosition =
+          targetSection.getBoundingClientRect().bottom + window.scrollY + 1;
+        window.scrollTo({ top: scrollPosition, behavior: "smooth" });
+      }
+    }
+  };
+
+  // highlights current section in view
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll("section");
+
+      sections.forEach((section) => {
+        const { top, bottom } = section.getBoundingClientRect();
+
+        if (top <= window.innerHeight && bottom >= window.innerHeight / 2) {
+          setActiveSection(section.id);
+        }
+      });
+    };
+
+    document.addEventListener("scroll", handleScroll);
+    return () => document.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <>
       <div className="fixed z-50 hidden h-fit w-full flex-row justify-between bg-primary-red px-4 py-2 text-white md:flex md:px-8">
@@ -32,15 +76,18 @@ const Header = () => {
         />
         <div className="hidden h-full flex-row space-x-24 py-2 focus:outline-none md:flex">
           {links.map((link) => (
-            <Link
-              as="a"
+            <button
+              onClick={() => handleHeadingClick(link.href)}
               key={link.href}
-              href={link.href}
               className="group p-2 font-body text-3xl"
             >
               {link.name}
-              <span className="block h-0.5 w-0 transform bg-white transition-all duration-300 group-hover:w-full" />
-            </Link>
+              <span
+                className={`block h-0.5 w-0 transform bg-white transition-all duration-300 group-hover:w-full ${
+                  activeSection === link.href && "w-full"
+                }`}
+              />
+            </button>
           ))}
         </div>
         <button className="hidden h-fit border border-white bg-primary-red p-4 drop-shadow-lg md:block">
@@ -81,9 +128,9 @@ const Header = () => {
               <Menu.Items className="flex h-full flex-col space-y-8 py-4 focus:outline-none md:hidden">
                 {links.map((link) => (
                   <Menu.Item
-                    as="a"
+                    as="button"
+                    onClick={() => handleHeadingClick(link.href)}
                     key={link.href}
-                    href={link.href}
                     className="p-2 font-body text-3xl font-bold"
                   >
                     {link.name}

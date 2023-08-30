@@ -49,7 +49,7 @@ const Home = () => {
         </div>
       </section>
       <section
-        id="social"
+        id="socials"
         className="flex min-h-fit w-full flex-col items-center justify-start"
       >
         <SectionBar
