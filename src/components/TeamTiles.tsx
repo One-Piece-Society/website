@@ -1,7 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { motion } from "framer-motion";
+import { type Transition, motion } from "framer-motion";
 
 const TeamTiles = () => {
+  const springTransition: Transition = {
+    type: "spring",
+    duration: 1,
+    ease: [0.4, 0.0, 0.2, 1], // You can adjust the easing values here
+  };
   return (
     <div className="grid h-full w-full grid-flow-row grid-cols-2 gap-8 md:grid-cols-3 xl:grid-cols-4">
       {[...Array(7)].map((e, i) => (
@@ -10,9 +15,7 @@ const TeamTiles = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{
-            type: "spring",
-            duration: 1,
-            ease: "easeOut",
+            ...springTransition,
             delay: i / 10,
           }}
           key={i}
