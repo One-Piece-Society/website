@@ -1,26 +1,40 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { motion } from "framer-motion";
+
 const TeamTiles = () => {
   return (
     <div className="grid h-full w-full grid-flow-row grid-cols-2 gap-8 md:grid-cols-3 xl:grid-cols-4">
       {[...Array(7)].map((e, i) => (
-        <div
-          key={i}
-          className="relative aspect-square h-fit w-full overflow-clip bg-contain bg-center bg-no-repeat object-scale-down transition-all duration-500 ease-in-out"
-          // loading lower resolution because this takes a lot of time to load
-          style={{
-            backgroundImage: `url(${
-              "https://media.discordapp.net/attachments/1092987636035092662/1146437571237388429/zoro-pfp-02.png" +
-              "?width=500&height=500"
-            })`,
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            type: "spring",
+            duration: 1,
+            ease: "easeOut",
+            delay: i / 10,
           }}
+          key={i}
         >
-          <div className="flex h-full w-full flex-col items-start justify-end bg-black/40 p-4 opacity-0 transition-opacity duration-500 hover:opacity-100 active:opacity-100 ">
-            <div className="bg-white p-4">
-              <h1 className="text-base text-black md:text-xl">Name Here</h1>
-              <p className="text-xs text-black/60 md:text-base">President</p>
+          <div
+            className="relative aspect-square h-fit w-full overflow-clip bg-contain bg-center bg-no-repeat object-scale-down transition-all duration-500 ease-in-out"
+            // loading lower resolution because this takes a lot of time to load
+            style={{
+              backgroundImage: `url(${
+                "https://media.discordapp.net/attachments/1092987636035092662/1146437571237388429/zoro-pfp-02.png" +
+                "?width=500&height=500"
+              })`,
+            }}
+          >
+            <div className="flex h-full w-full flex-col items-start justify-end bg-black/40 p-4 opacity-0 transition-opacity duration-500 hover:opacity-100 active:opacity-100 ">
+              <div className="bg-white p-4">
+                <h1 className="text-base text-black md:text-xl">Name Here</h1>
+                <p className="text-xs text-black/60 md:text-base">President</p>
+              </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

@@ -3,8 +3,10 @@ import { Bars3Icon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { motion, useScroll } from "framer-motion";
 
 const Header = () => {
+  const { scrollYProgress } = useScroll();
   const links = [
     {
       href: "events",
@@ -98,6 +100,10 @@ const Header = () => {
           <p className="font-body text-xl">Become a Member</p>
         </Link>
       </div>
+      <motion.div
+        className="fixed left-0 right-0 top-0 z-50 h-1 origin-top-left bg-white"
+        style={{ scaleX: scrollYProgress }}
+      />
       <Menu>
         {({ open }: { open: boolean }) => (
           <div

@@ -1,15 +1,21 @@
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { type MotionValue, motion, useScroll } from "framer-motion";
 
 const Panels = () => {
+  // Extract the numeric value from scrollYProgress
   return (
     <div className="flex h-full w-full flex-row drop-shadow-lg">
       <div className="panel flex h-full w-full flex-col space-y-8">
         <motion.div
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, ease: "easeInOut", delay: 0 }}
-          className="h-5/6 "
+          transition={{
+            type: "spring",
+            duration: 1,
+            ease: "easeInOut",
+            delay: 0,
+          }}
+          className="h-5/6"
         >
           <Image
             alt="op"
@@ -22,8 +28,13 @@ const Panels = () => {
         <motion.div
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, ease: "easeInOut", delay: 0.1 }}
-          className=" h-1/6"
+          transition={{
+            type: "spring",
+            duration: 1,
+            ease: "easeInOut",
+            delay: 0.1,
+          }}
+          className="h-1/6"
         >
           <Image
             alt="op"
@@ -38,7 +49,12 @@ const Panels = () => {
         <motion.div
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
+          transition={{
+            type: "spring",
+            duration: 1,
+            ease: "easeInOut",
+            delay: 0.2,
+          }}
           className="h-1/6 bg-fixed"
         >
           <Image
@@ -52,7 +68,12 @@ const Panels = () => {
         <motion.div
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, ease: "easeInOut", delay: 0.3 }}
+          transition={{
+            type: "spring",
+            duration: 1,
+            ease: "easeInOut",
+            delay: 0.3,
+          }}
           className="h-5/6"
         >
           <Image
@@ -68,7 +89,12 @@ const Panels = () => {
         <motion.div
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, ease: "easeInOut", delay: 0.4 }}
+          transition={{
+            type: "spring",
+            duration: 1,
+            ease: "easeInOut",
+            delay: 0.4,
+          }}
           className="h-5/6"
         >
           <Image
@@ -82,7 +108,12 @@ const Panels = () => {
         <motion.div
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, ease: "easeInOut", delay: 0.5 }}
+          transition={{
+            type: "spring",
+            duration: 1,
+            ease: "easeInOut",
+            delay: 0.5,
+          }}
           className=" h-1/6"
         >
           <Image
