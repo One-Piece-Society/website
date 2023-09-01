@@ -1,3 +1,4 @@
+import Link from "next/link";
 import EventMangaPages from "~/components/EventMangaPages";
 import EventTile from "~/components/EventTile";
 import Panels from "~/components/Panels";
@@ -23,9 +24,12 @@ const Home = () => {
             experience the thrill of One Piece in a community as dynamic as the
             Grand Line itself!
           </p>
-          <button className="border border-white bg-primary-red px-8 py-4 drop-shadow-lg">
+          <Link
+            href="https://discord.gg/USxv58e7PQ"
+            className="border border-white bg-primary-red px-8 py-4 drop-shadow-lg"
+          >
             <p className="font-body text-base md:text-xl">Join our Discord</p>
-          </button>
+          </Link>
         </div>
         <div className="hidden min-h-screen w-2/3 flex-col items-start justify-center bg-fixed md:flex">
           <Panels />

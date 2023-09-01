@@ -1,6 +1,7 @@
 import { Menu, Transition } from "@headlessui/react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const Header = () => {
@@ -90,14 +91,17 @@ const Header = () => {
             </button>
           ))}
         </div>
-        <button className="hidden h-fit border border-white bg-primary-red p-4 drop-shadow-lg md:block">
+        <Link
+          href="https://member.arc.unsw.edu.au/s/clubdetail?clubid=0016F0000459PRd"
+          className="hidden h-fit border border-white bg-primary-red p-4 drop-shadow-lg md:block"
+        >
           <p className="font-body text-xl">Become a Member</p>
-        </button>
+        </Link>
       </div>
       <Menu>
         {({ open }: { open: boolean }) => (
           <div
-            className={`fixed z-50 flex h-fit w-full flex-col bg-primary-red px-4 md:hidden ${
+            className={`fixed z-50 flex h-fit w-full flex-col bg-primary-red px-4 transition-colors duration-100 md:hidden ${
               open && "bg-white text-primary-red"
             } `}
           >
@@ -125,7 +129,7 @@ const Header = () => {
               leaveFrom="transform scale-100 opacity-100"
               leaveTo="transform scale-95 opacity-0"
             >
-              <Menu.Items className="flex h-full flex-col space-y-8 py-4 focus:outline-none md:hidden">
+              <Menu.Items className="flex h-full flex-col items-center space-y-8 py-4 focus:outline-none md:hidden">
                 {links.map((link) => (
                   <Menu.Item
                     as="button"
@@ -136,6 +140,14 @@ const Header = () => {
                     {link.name}
                   </Menu.Item>
                 ))}
+                <Menu.Item
+                  as="a"
+                  target="_blank"
+                  href="https://member.arc.unsw.edu.au/s/clubdetail?clubid=0016F0000459PRd"
+                  className="pb-2 font-body text-3xl font-bold"
+                >
+                  Become a Member
+                </Menu.Item>
               </Menu.Items>
             </Transition>
           </div>
@@ -145,18 +157,3 @@ const Header = () => {
   );
 };
 export default Header;
-
-/*
-    2 landing pages
-
-    banner section
-    cards
-
-    video production 5-6 case studies
-    
-    layout
-
-    Shvaasa = logo, website, social media, e-com website, brand assets, brand usage document, running campaigns, model shoots
-
-    call to action
-*/
