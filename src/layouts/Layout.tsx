@@ -1,3 +1,4 @@
+import Footer from "./Footer";
 import Header from "./Header";
 // import Footer from "./Footer";
 
@@ -15,8 +16,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         <Header />
         {children}
       </div>
-      <div>Footer Here</div>
-      {/* <Footer /> */}
+      <Footer />
     </main>
   );
 };
