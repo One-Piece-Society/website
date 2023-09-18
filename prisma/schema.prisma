@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-    provider = "sqlite"
+    provider = "postgresql"
     url      = env("DATABASE_URL")
 }
 
@@ -24,7 +24,16 @@ model Events {
     endTime      DateTime @default(now())
     locationLink String?
     image        String?
+    online       Boolean  @default(false)
+    createdAt    DateTime @default(now())
+    updatedAt    DateTime @updatedAt
+    position     String   @default("none")
+    Panel        Panel[]
+}
 
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+model Panel {
+    id       Int    @id @default(autoincrement())
+    image    String
+    event    Events @relation(fields: [eventsId], references: [id])
+    eventsId Int
 }

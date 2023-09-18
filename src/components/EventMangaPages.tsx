@@ -9,7 +9,7 @@ const EventMangaPages = () => {
 
   return (
     <div className="flex h-fit w-full flex-col-reverse gap-4 drop-shadow-lg md:h-full md:flex-row md:p-4">
-      Left/Bottom Manga Page
+      {/* Left/Bottom Manga Page */}
       <div className="flex h-screen w-full flex-col gap-4 md:h-full ">
         <div className="h-1/2 w-full border-4 border-black bg-primary-red">
           a
