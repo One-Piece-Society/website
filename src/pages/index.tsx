@@ -48,9 +48,12 @@ const Home = () => {
           title="Events"
           image="https://12dimension.files.wordpress.com/2019/10/one_piece_ch958_p010-011-e1571959134232.jpg"
         />
-        <div className="h-full max-h-96 w-full">
-          <EventTile />
-        </div>
+
+        {response.data.featureEvent && (
+          <div className="h-full max-h-96 w-full">
+            <EventTile data={response.data.featureEvent} />
+          </div>
+        )}
         <div className="flex h-full w-full flex-row justify-center p-2 md:h-screen md:p-8">
           <div className="h-full w-full md:w-11/12">
             <EventMangaPages />
