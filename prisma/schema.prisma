@@ -46,6 +46,14 @@ model Team {
     position String
 }
 
+model Social {
+    id              String @id @default(cuid())
+    name            String
+    link            String
+    backgroundImage String
+    logo            String
+}
+
 enum TeamType {
     EXECUTIVE
     SUBCOMMITTEE
