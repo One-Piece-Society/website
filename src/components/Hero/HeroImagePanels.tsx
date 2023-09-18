@@ -1,14 +1,13 @@
 import Image from "next/image";
-import { type Transition, motion } from "framer-motion";
+import { motion } from "framer-motion";
+import { type ImagePanel } from "@prisma/client";
+import { springTransition } from "~/util/animation";
 
-const HeroImagePanels = () => {
-  const springTransition: Transition = {
-    type: "spring",
-    duration: 1,
-    ease: [0.4, 0.0, 0.2, 1], // You can adjust the easing values here
-  };
+interface Props {
+  data: ImagePanel[];
+}
 
-  // Extract the numeric value from scrollYProgress
+const HeroImagePanels: React.FC<Props> = ({ data }) => {
   return (
     <div className="flex h-full w-full flex-row drop-shadow-lg">
       <div className="panel flex h-full w-full flex-col space-y-8">
@@ -20,7 +19,7 @@ const HeroImagePanels = () => {
         >
           <Image
             alt="op"
-            src="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
+            src={data.find((e) => e.position === "A")?.image ?? ""}
             width={1080}
             height={1130}
             className="h-full w-full object-cover"
@@ -37,7 +36,7 @@ const HeroImagePanels = () => {
         >
           <Image
             alt="op"
-            src="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
+            src={data.find((e) => e.position === "B")?.image ?? ""}
             width={1080}
             height={1130}
             className="h-full w-full object-cover"
@@ -56,7 +55,7 @@ const HeroImagePanels = () => {
         >
           <Image
             alt="op"
-            src="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
+            src={data.find((e) => e.position === "C")?.image ?? ""}
             width={1080}
             height={1130}
             className="h-full w-full object-cover"
@@ -73,7 +72,7 @@ const HeroImagePanels = () => {
         >
           <Image
             alt="op"
-            src="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
+            src={data.find((e) => e.position === "D")?.image ?? ""}
             width={1080}
             height={1130}
             className="h-full w-full object-cover"
@@ -92,7 +91,7 @@ const HeroImagePanels = () => {
         >
           <Image
             alt="op"
-            src="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
+            src={data.find((e) => e.position === "E")?.image ?? ""}
             width={1080}
             height={1130}
             className="h-full w-full object-cover"
@@ -109,7 +108,7 @@ const HeroImagePanels = () => {
         >
           <Image
             alt="op"
-            src="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
+            src={data.find((e) => e.position === "F")?.image ?? ""}
             width={1080}
             height={1130}
             className="h-full w-full object-cover"

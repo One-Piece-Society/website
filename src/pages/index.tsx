@@ -1,13 +1,18 @@
 import Link from "next/link";
 import EventMangaPages from "~/components/Events/EventMangaPages";
 import EventTile from "~/components/Events/EventTile";
-import Panels from "~/components/Hero/HeroImagePanels";
+import HeroImagePanels from "~/components/Hero/HeroImagePanels";
 import SectionBar from "~/components/layouts/SectionBar";
 import SocialsTiles from "~/components/Socials/SocialsTiles";
 import TeamTiles from "~/components/Team/TeamTiles";
+import { api } from "~/util/api";
 import Layout from "~/components/layouts/Layout";
+import LoadingPage from "~/components/pages/LoadingPage";
 
 const Home = () => {
+  const response = api.main.getAllPageData.useQuery();
+  if (!response.isSuccess) return <LoadingPage />;
+
   return (
     <Layout>
       <section className="flex h-fit w-full flex-row justify-start px-4 pt-4 md:min-h-screen md:px-16 md:pt-16">
@@ -32,7 +37,7 @@ const Home = () => {
           </Link>
         </div>
         <div className="hidden min-h-screen w-2/3 flex-col items-start justify-center bg-fixed md:flex">
-          <Panels />
+          <HeroImagePanels data={response.data.imagePanel ?? []} />
         </div>
       </section>
       <section
@@ -62,7 +67,7 @@ const Home = () => {
         />
         <div className="flex h-full w-full flex-row justify-center p-2 md:p-8">
           <div className="h-full w-full py-4 md:w-11/12 md:py-16">
-            <SocialsTiles />
+            <SocialsTiles data={response.data.socials ?? []} />
           </div>
         </div>
       </section>
@@ -90,4 +95,5 @@ const Home = () => {
     </Layout>
   );
 };
+
 export default Home;
