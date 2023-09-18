@@ -1,7 +1,7 @@
 const EventMangaPages = () => {
   // console.log("hello");
 
-  // Access database and pull top x data 
+  // Access database and pull top x data
 
   // Dynamically allocate spaces and populate information for events
 

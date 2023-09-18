@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { type Transition, motion } from "framer-motion";
 
-const Panels = () => {
+const HeroImagePanels = () => {
   const springTransition: Transition = {
     type: "spring",
     duration: 1,
@@ -119,4 +119,4 @@ const Panels = () => {
     </div>
   );
 };
-export default Panels;
+export default HeroImagePanels;

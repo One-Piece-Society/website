@@ -135,7 +135,7 @@ const Header = () => {
               leaveFrom="transform scale-100 opacity-100"
               leaveTo="transform scale-95 opacity-0"
             >
-              <Menu.Items className="flex h-full flex-col items-center space-y-8 py-4 focus:outline-none md:hidden">
+              <Menu.Items className="flex h-full flex-col items-start space-y-8 py-4 focus:outline-none md:hidden">
                 {links.map((link) => (
                   <Menu.Item
                     as="button"
