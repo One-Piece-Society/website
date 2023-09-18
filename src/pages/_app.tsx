@@ -1,6 +1,7 @@
 import { type AppType } from "next/dist/shared/lib/utils";
 import "~/styles/globals.css";
 import { Dela_Gothic_One, DM_Sans } from "next/font/google";
+import { api } from "~/util/api";
 
 export const DelaGothicOne = Dela_Gothic_One({
   subsets: ["latin"],
@@ -21,4 +22,4 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   );
 };
 
-export default MyApp;
+export default api.withTRPC(MyApp);

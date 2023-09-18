@@ -1,4 +1,12 @@
 const EventMangaPages = () => {
+  // console.log("hello");
+
+  // Access database and pull top x data 
+
+  // Dynamically allocate spaces and populate information for events
+
+  // Generate results
+
   return (
     <div className="flex h-fit w-full flex-col-reverse gap-4 drop-shadow-lg md:h-full md:flex-row md:p-4">
       {/* Left/Bottom Manga Page */}
