@@ -21,6 +21,7 @@ model Event {
     online       Boolean      @default(false)
     createdAt    DateTime     @default(now())
     updatedAt    DateTime     @updatedAt
+    featured     Boolean      @default(false)
     Panel        EventPanel[]
 }
 
