@@ -10,30 +10,53 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Example {
-    id        String   @id @default(cuid())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-}
-
-model Events {
-    id           Int      @id @default(autoincrement())
+model Event {
+    id           String       @id @default(cuid())
     title        String
     description  String
-    startTime    DateTime @default(now())
-    endTime      DateTime @default(now())
+    startTime    DateTime     @default(now())
+    endTime      DateTime     @default(now())
     locationLink String?
     image        String?
-    online       Boolean  @default(false)
-    createdAt    DateTime @default(now())
-    updatedAt    DateTime @updatedAt
-    position     String   @default("none")
-    Panel        Panel[]
+    online       Boolean      @default(false)
+    createdAt    DateTime     @default(now())
+    updatedAt    DateTime     @updatedAt
+    Panel        EventPanel[]
 }
 
-model Panel {
-    id       Int    @id @default(autoincrement())
+model ImagePanel {
+    id       String        @id @default(cuid())
+    position PanelPosition
     image    String
-    event    Events @relation(fields: [eventsId], references: [id])
-    eventsId Int
+}
+
+model EventPanel {
+    id       String        @id @default(cuid())
+    position PanelPosition
+    image    String
+    event    Event         @relation(fields: [eventId], references: [id])
+    eventId  String
+}
+
+model Team {
+    id       String   @id @default(cuid())
+    type     TeamType @default(EXECUTIVE)
+    image    String
+    name     String
+    position String
+}
+
+enum TeamType {
+    EXECUTIVE
+    SUBCOMMITTEE
+}
+
+enum PanelPosition {
+    A
+    B
+    C
+    D
+    E
+    F
+    G
 }
