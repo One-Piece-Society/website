@@ -8,7 +8,10 @@ export const mainRouter = createTRPCRouter({
       featureEvent: await ctx.prisma.event.findFirst({
         where: { featured: true },
       }),
-      events: await ctx.prisma.event.findMany(),
+      events: await ctx.prisma.event.findMany({
+        where: { featured: false },
+      }),
+      panels: await ctx.prisma.eventPanel.findMany(),
     };
     return response;
   }),

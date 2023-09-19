@@ -56,7 +56,7 @@ const Home = () => {
         )}
         <div className="flex h-full w-full flex-row justify-center p-2 md:h-screen md:p-8">
           <div className="h-full w-full md:w-11/12">
-            <EventMangaPages />
+            <EventMangaPages data={response.data.panels ?? []} />
           </div>
         </div>
       </section>

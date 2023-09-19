@@ -1,20 +1,12 @@
 import { useEffect, useState } from "react";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import { type Event } from "@prisma/client";
-import { getTimeDifferenceSentence } from "~/util/time";
 interface Props {
   data: Event;
 }
 
 const EventTile: React.FC<Props> = ({ data }) => {
   const [showModal, setShowModal] = useState(false);
-  const [sentence, setSentence] = useState("Time has already passed");
-
-  useEffect(() => {
-    // Calculate the sentence only on the client side
-    const calculatedSentence = getTimeDifferenceSentence(data.startTime);
-    setSentence(calculatedSentence);
-  }, [data.startTime]);
 
   return (
     <div className="flex h-96 flex-row overflow-hidden border-b-2 border-black text-black md:flex-row">
@@ -36,7 +28,14 @@ const EventTile: React.FC<Props> = ({ data }) => {
                 {data.title}
               </p>
               <p className="font-body text-base font-light md:text-xl">
-                {sentence}
+                {data.startTime.toLocaleString("en-AU", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                  hour: "numeric",
+                  minute: "numeric",
+                  hour12: true,
+                })}
               </p>
               <button
                 className="flex flex-row items-center space-x-2 pt-4"
