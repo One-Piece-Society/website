@@ -25,11 +25,16 @@ const EventModal: React.FC<Props> = ({ data, isOpen, closeModal }) => {
   const [copied, setCopied] = useState(false);
 
   const handleShare = () => {
-    setCopied(true);
-    navigator.clipboard.writeText(baseUrl).catch((e) => console.error(e));
-    setTimeout(() => {
-      setCopied(false);
-    }, 2000);
+    try {
+      setCopied(true);
+      void navigator.clipboard.writeText(baseUrl).then(() => {
+        setTimeout(() => {
+          setCopied(false);
+        }, 2000);
+      });
+    } catch (error) {
+      console.error("Clipboard writeText error:", error);
+    }
   };
 
   return (
