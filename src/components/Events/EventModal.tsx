@@ -13,6 +13,7 @@ import { type Event } from "@prisma/client";
 import Image from "next/image";
 import { Fragment, useState } from "react";
 import ImageGallery from "../Image/ImageGallery";
+import { baseUrl } from "../layouts/SEO";
 
 interface Props {
   data: Event;
@@ -25,6 +26,7 @@ const EventModal: React.FC<Props> = ({ data, isOpen, closeModal }) => {
 
   const handleShare = () => {
     setCopied(true);
+    navigator.clipboard.writeText(baseUrl).catch((e) => console.error(e));
     setTimeout(() => {
       setCopied(false);
     }, 2000);

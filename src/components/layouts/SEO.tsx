@@ -6,14 +6,14 @@ type Props = {
   image?: string;
 };
 
+const environmentUrl =
+  process.env.NEXT_PUBLIC_BYPASS_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL;
+
+export const baseUrl: string = environmentUrl
+  ? `https://${environmentUrl}`
+  : `http://localhost:3000`;
+
 const SEO: React.FC<Props> = ({ title, description, image }) => {
-  const environmentUrl =
-    process.env.NEXT_PUBLIC_BYPASS_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL;
-
-  const baseUrl: string = environmentUrl
-    ? `https://${environmentUrl}`
-    : `http://localhost:3000`;
-
   const formattedTitle = title;
 
   const IMAGE =
