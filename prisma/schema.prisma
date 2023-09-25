@@ -18,7 +18,8 @@ model Event {
     endTime      DateTime     @default(now())
     locationLink String?
     image        String?
-    online       Boolean      @default(false)
+    imageGallery String[]
+    online       Boolean      @default(true)
     createdAt    DateTime     @default(now())
     updatedAt    DateTime     @updatedAt
     featured     Boolean      @default(false)
