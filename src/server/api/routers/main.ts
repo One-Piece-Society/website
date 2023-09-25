@@ -12,6 +12,16 @@ export const mainRouter = createTRPCRouter({
         where: { featured: false },
       }),
       panels: await ctx.prisma.eventPanel.findMany(),
+      executives: await ctx.prisma.team.findMany({
+        where: {
+          type: "EXECUTIVE",
+        },
+      }),
+      subcommittee: await ctx.prisma.team.findMany({
+        where: {
+          type: "SUBCOMMITTEE",
+        },
+      }),
     };
     return response;
   }),

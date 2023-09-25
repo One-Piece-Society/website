@@ -87,11 +87,15 @@ const Home = () => {
             <h1 className="pb-4 font-body text-2xl font-semibold md:pb-8 md:text-5xl">
               Executives
             </h1>
-            <TeamTiles />
-            <h1 className="py-4 font-body text-2xl font-semibold md:py-8 md:text-5xl">
-              Subcommittee
-            </h1>
-            <TeamTiles />
+            <TeamTiles data={response.data.executives} />
+            {response.data.subcommittee && (
+              <>
+                <h1 className="py-4 font-body text-2xl font-semibold md:py-8 md:text-5xl">
+                  Subcommittee
+                </h1>
+                <TeamTiles data={response.data.subcommittee} />
+              </>
+            )}
           </div>
         </div>
       </section>

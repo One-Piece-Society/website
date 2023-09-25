@@ -21,6 +21,20 @@ export default {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
     },
+
+    animation: {
+      "background-animate": "AnimationName 3s ease infinite",
+    },
+    keyframes: {
+      AnimationName: {
+        "0%, 100%": {
+          "background-position": "0% 50%",
+        },
+        "50%": {
+          "background-position": "100% 50%",
+        },
+      },
+    },
   },
   plugins: [],
 } satisfies Config;

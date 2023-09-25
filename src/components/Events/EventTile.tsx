@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import { type Event } from "@prisma/client";
 interface Props {
