@@ -39,6 +39,9 @@ const SEO: React.FC<Props> = ({ title, description, image }) => {
       <meta property="og:title" content={formattedTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image ?? IMAGE} />
+      <meta property="og:image:width" content="320" />
+      <meta property="og:image:height" content="320" />
+      <meta property="og:image:type" content="image/png" />
 
       <meta name="twitter:card" content="summary" />
       <meta property="twitter:url" content={baseUrl} />
