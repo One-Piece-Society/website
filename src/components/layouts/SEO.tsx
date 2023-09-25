@@ -14,7 +14,7 @@ const SEO: React.FC<Props> = ({ title, description, image }) => {
     ? `https://${environmentUrl}`
     : `http://localhost:3000`;
 
-  const formattedTitle = `Hari Pramod | ${title}`;
+  const formattedTitle = title;
 
   const IMAGE =
     "https://media.discordapp.net/attachments/956904556132962334/957112846716661790/One_Piece_Logo.png";
@@ -40,9 +40,12 @@ const SEO: React.FC<Props> = ({ title, description, image }) => {
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image ?? IMAGE} />
 
+      <meta name="twitter:card" content="summary" />
       <meta property="twitter:url" content={baseUrl} />
-      <meta property="twitter:image" content={image ?? IMAGE} />
+      <meta property="twitter:title" content={formattedTitle} />
       <meta property="twitter:description" content={description} />
+      <meta property="twitter:image" content={image ?? IMAGE} />
+      <meta name="twitter:image:alt" content="Logo" />
     </Head>
   );
 };
