@@ -62,7 +62,7 @@ const EventModal: React.FC<Props> = ({ data, isOpen, closeModal }) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="h-fit w-full max-w-4xl transform overflow-y-auto bg-white text-left align-middle shadow-2xl transition-all md:max-h-[80%]">
+              <Dialog.Panel className="h-fit max-h-[80dvh] w-full max-w-4xl transform overflow-y-auto bg-white text-left align-middle shadow-2xl transition-all md:max-h-[80%]">
                 <div>
                   <Image
                     src={data.image ?? ""}
@@ -72,7 +72,6 @@ const EventModal: React.FC<Props> = ({ data, isOpen, closeModal }) => {
                     className="max-h-96 w-full object-cover object-center"
                   />
                 </div>
-
                 <Dialog.Title
                   as="h1"
                   className="px-4 pt-4 font-body text-xl font-bold md:px-8 md:pt-8 md:text-3xl"

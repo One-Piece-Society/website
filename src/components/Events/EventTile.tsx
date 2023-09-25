@@ -8,6 +8,16 @@ interface Props {
 
 const EventTile: React.FC<Props> = ({ data }) => {
   const [showModal, setShowModal] = useState(false);
+  const getEventCompletionStatus = (start: Date, end: Date) => {
+    const now = new Date();
+    if (now < start) {
+      return "Up Next";
+    } else if (now >= start && now <= end) {
+      return "Happening Now";
+    } else if (now > end) {
+      return "Completed";
+    }
+  };
 
   return (
     <>
@@ -29,7 +39,7 @@ const EventTile: React.FC<Props> = ({ data }) => {
             <div className="absolute flex h-full w-1/2 flex-col items-start justify-end p-4 md:p-8">
               <div className="bg-white p-4 drop-shadow-lg md:p-8">
                 <p className="pb-2 font-body text-xs font-light md:text-base">
-                  Up Next
+                  {getEventCompletionStatus(data.startTime, data.endTime)}
                 </p>
                 <p className="font-body text-xl font-bold md:text-3xl">
                   {data.title}
