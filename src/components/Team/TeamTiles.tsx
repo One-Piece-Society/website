@@ -33,7 +33,7 @@ const TeamTiles: React.FC<Props> = ({ data }) => {
               })`,
             }}
           >
-            <div className="flex h-full w-full flex-col items-start justify-end bg-black/40 p-4 opacity-0 transition-opacity duration-500 hover:opacity-100 active:opacity-100 ">
+            <div className="flex h-full w-full flex-col items-start justify-end bg-black/40 p-4 opacity-0 transition-opacity duration-500 hover:opacity-100 active:opacity-100">
               <div className="bg-white p-4">
                 <h1 className="text-base text-black md:text-xl">{e.name}</h1>
                 <p className="text-xs text-black/60 md:text-base">

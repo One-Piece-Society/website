@@ -11,7 +11,11 @@ export const mainRouter = createTRPCRouter({
       events: await ctx.prisma.event.findMany({
         where: { featured: false },
       }),
-      panels: await ctx.prisma.eventPanel.findMany(),
+      panels: await ctx.prisma.eventPanel.findMany({
+        include: {
+          event: true,
+        },
+      }),
       executives: await ctx.prisma.team.findMany({
         where: {
           type: "EXECUTIVE",

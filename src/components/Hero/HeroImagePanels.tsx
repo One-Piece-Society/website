@@ -15,7 +15,7 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ ...springTransition, delay: 0 }}
-          className="h-5/6"
+          className="h-4/6"
         >
           <Image
             alt="op"
@@ -32,7 +32,7 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
             ...springTransition,
             delay: 0.1,
           }}
-          className="h-1/6"
+          className="h-2/6"
         >
           <Image
             alt="op"
@@ -51,7 +51,7 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
             ...springTransition,
             delay: 0.2,
           }}
-          className="h-1/6 bg-fixed"
+          className="h-2/6 bg-fixed"
         >
           <Image
             alt="op"
@@ -68,7 +68,7 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
             ...springTransition,
             delay: 0.3,
           }}
-          className="h-5/6"
+          className="h-4/6"
         >
           <Image
             alt="op"
@@ -87,7 +87,7 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
             ...springTransition,
             delay: 0.4,
           }}
-          className="h-5/6"
+          className="h-4/6"
         >
           <Image
             alt="op"
@@ -104,7 +104,7 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
             ...springTransition,
             delay: 0.5,
           }}
-          className=" h-1/6"
+          className=" h-2/6"
         >
           <Image
             alt="op"
