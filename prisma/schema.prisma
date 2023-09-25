@@ -45,6 +45,7 @@ model Team {
     image    String
     name     String
     position String
+    order    Int      @default(9999)
 }
 
 model Social {

@@ -87,13 +87,21 @@ const Home = () => {
             <h1 className="pb-4 font-body text-2xl font-semibold md:pb-8 md:text-5xl">
               Executives
             </h1>
-            <TeamTiles data={response.data.executives} />
+            <TeamTiles
+              data={response.data.executives.sort((a, b) =>
+                a.order >= b.order ? 1 : -1,
+              )}
+            />
             {response.data.subcommittee && (
               <>
                 <h1 className="py-4 font-body text-2xl font-semibold md:py-8 md:text-5xl">
                   Subcommittee
                 </h1>
-                <TeamTiles data={response.data.subcommittee} />
+                <TeamTiles
+                  data={response.data.subcommittee.sort((a, b) =>
+                    a.order >= b.order ? 1 : -1,
+                  )}
+                />
               </>
             )}
           </div>
