@@ -47,6 +47,7 @@ model Team {
     name     String
     position String
     order    Int      @default(9999)
+    year     Int
 }
 
 model Social {

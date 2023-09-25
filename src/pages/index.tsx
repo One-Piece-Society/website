@@ -8,10 +8,19 @@ import TeamTiles from "~/components/Team/TeamTiles";
 import { api } from "~/util/api";
 import Layout from "~/components/layouts/Layout";
 import LoadingPage from "~/components/pages/LoadingPage";
+import { useEffect, useState } from "react";
 
 const Home = () => {
+  const [loading, setLoading] = useState(true);
   const response = api.main.getAllPageData.useQuery();
-  if (!response.isSuccess) return <LoadingPage />;
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
+  if (!response.isSuccess || loading) return <LoadingPage />;
 
   return (
     <Layout>
