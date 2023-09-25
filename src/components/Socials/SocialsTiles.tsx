@@ -43,7 +43,7 @@ const SocialsTiles: React.FC<Props> = ({ data }) => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           target="_blank"
-          href={data[0]?.link ?? ""}
+          href={data[1]?.link ?? ""}
           className="panel2 relative flex w-full flex-row items-center"
         >
           <div className="static z-40 flex w-full flex-row items-center justify-end gap-4 bg-gradient-to-l from-blue-500 via-blue-500/80 to-blue-500/40 p-8 drop-shadow-lg md:gap-8">
