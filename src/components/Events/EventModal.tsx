@@ -57,7 +57,7 @@ const EventModal: React.FC<Props> = ({ data, isOpen, closeModal }) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="h-fit w-full max-w-4xl transform overflow-y-auto bg-white text-left align-middle shadow-2xl transition-all md:max-h-[60%]">
+              <Dialog.Panel className="h-fit w-full max-w-4xl transform overflow-y-auto bg-white text-left align-middle shadow-2xl transition-all md:max-h-[80%]">
                 <div>
                   <Image
                     src={data.image ?? ""}
