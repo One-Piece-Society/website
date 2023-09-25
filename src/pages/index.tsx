@@ -66,7 +66,7 @@ const Home = () => {
       >
         <SectionBar
           title="Socials"
-          image="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
+          image="https://media.discordapp.net/attachments/1092987636035092662/1155801524350500894/E6hfKUdX0AQtHwU.png"
         />
         <div className="flex h-full w-full flex-row justify-center p-2 md:p-8">
           <div className="h-full w-full py-4 md:w-11/12 md:py-16">
