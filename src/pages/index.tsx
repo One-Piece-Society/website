@@ -44,7 +44,7 @@ const Home = () => {
 
   return (
     <>
-      <SEO data={getSEO()} />
+      <SEO data={DefaultSEO} />
       <Layout>
         <section className="flex h-fit w-full flex-row justify-start px-4 pt-4 md:min-h-screen md:px-16 md:pt-16">
           <div className="flex h-fit w-full flex-col items-start justify-center md:min-h-screen  md:w-1/3">

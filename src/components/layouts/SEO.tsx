@@ -15,8 +15,6 @@ const SEO: React.FC<Props> = ({ data }) => {
     "https://media.discordapp.net/attachments/956904556132962334/957112846716661790/One_Piece_Logo.png";
   const favicon = `${baseUrl}/static/favicon.ico`;
 
-  console.log("SEOOOOO");
-  console.log(JSON.stringify(data));
   return (
     <Head>
       <title>{data.title}</title>
