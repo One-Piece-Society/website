@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { type SEOProps } from "~/util/types";
 
-type Props = { data: SEOProps & { eventId?: string } };
+type Props = { data: SEOProps & { eventName?: string } };
 
 const environmentUrl =
   process.env.NEXT_PUBLIC_BYPASS_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL;
@@ -15,10 +15,13 @@ const SEO: React.FC<Props> = ({ data }) => {
     "https://media.discordapp.net/attachments/956904556132962334/957112846716661790/One_Piece_Logo.png";
   const favicon = `${baseUrl}/static/favicon.ico`;
 
+  let formattedTitle = data.title;
+  if (data.eventName) formattedTitle = data.eventName + " | OpSoc";
+
   return (
     <Head>
-      <title>{data.title}</title>
-      <meta name="title" content={data.title} />
+      <title>{formattedTitle}</title>
+      <meta name="title" content={formattedTitle} />
       <meta name="description" content={data.description} />
       <meta
         name="keywords"
@@ -31,16 +34,16 @@ const SEO: React.FC<Props> = ({ data }) => {
 
       <meta property="og:type" content="website" />
       <meta property="og:url" content={data.url} />
-      <meta property="og:title" content={data.title} />
+      <meta property="og:title" content={formattedTitle} />
       <meta property="og:description" content={data.description} />
       <meta property="og:image" content={data.image ?? DEFAULT_IMAGE} />
       <meta property="og:image:width" content="320" />
       <meta property="og:image:height" content="320" />
       <meta property="og:image:type" content="image/png" />
 
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content={data.url} />
-      <meta property="twitter:title" content={data.title} />
+      <meta property="twitter:title" content={formattedTitle} />
       <meta property="twitter:description" content={data.description} />
       <meta property="twitter:image" content={data.image ?? DEFAULT_IMAGE} />
       <meta name="twitter:image:alt" content="Logo" />

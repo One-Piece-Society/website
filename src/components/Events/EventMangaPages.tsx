@@ -17,8 +17,8 @@ const EventMangaPages: React.FC<Props> = ({ data }) => {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get("event")) {
-      const eventId = params.get("event");
-      setSelectedEvent(data.find((x) => x.eventId === eventId)?.event);
+      const eventName = decodeURIComponent(params.get("event") ?? "");
+      setSelectedEvent(data.find((x) => x.event.title === eventName)?.event);
       setShowModal(true);
     }
   }, [data]);
