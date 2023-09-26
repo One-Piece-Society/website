@@ -50,7 +50,7 @@ const SEO: React.FC = () => {
     <Head>
       <title>{formattedTitle}</title>
       <meta name="title" content={formattedTitle} />
-      <meta name="description" content={DefaultSEO.description} />
+      <meta name="description" content={formattedDescription} />
       <meta
         name="keywords"
         content="unsw, UNSW, one piece, Luffy, manga, anime, Sydney"
