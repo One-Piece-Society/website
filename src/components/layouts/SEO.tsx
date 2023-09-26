@@ -1,14 +1,22 @@
 import Head from "next/head";
-import { baseUrl } from "~/util/SEO";
 import { type SEOProps } from "~/util/types";
 
 type Props = { data: SEOProps & { eventId?: string } };
+
+const environmentUrl =
+  process.env.NEXT_PUBLIC_BYPASS_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL;
+
+export const baseUrl: string = environmentUrl
+  ? `https://${environmentUrl}`
+  : `http://localhost:3000`;
 
 const SEO: React.FC<Props> = ({ data }) => {
   const DEFAULT_IMAGE =
     "https://media.discordapp.net/attachments/956904556132962334/957112846716661790/One_Piece_Logo.png";
   const favicon = `${baseUrl}/static/favicon.ico`;
 
+  console.log("SEOOOOO");
+  console.log(JSON.stringify(data));
   return (
     <Head>
       <title>{data.title}</title>

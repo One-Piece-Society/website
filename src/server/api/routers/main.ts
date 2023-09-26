@@ -1,4 +1,11 @@
+import {
+  type Event,
+  type ImagePanel,
+  type Social,
+  type Team,
+} from "@prisma/client";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+import { type EventPanel } from "~/util/types";
 
 export const mainRouter = createTRPCRouter({
   getAllPageData: publicProcedure.query(async ({ ctx }) => {
@@ -30,3 +37,13 @@ export const mainRouter = createTRPCRouter({
     return response;
   }),
 });
+
+export type responseDataType = {
+  imagePanel: ImagePanel[];
+  socials: Social[];
+  featureEvent: Event;
+  events: Event[];
+  panels: EventPanel[];
+  executives: Team[];
+  subcommittee: Team[];
+};

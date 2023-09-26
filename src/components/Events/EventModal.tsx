@@ -13,7 +13,7 @@ import { type Event } from "@prisma/client";
 import Image from "next/image";
 import { Fragment, useState } from "react";
 import ImageGallery from "../Image/ImageGallery";
-import { baseUrl } from "~/util/SEO";
+import { baseUrl } from "../layouts/SEO";
 
 interface Props {
   data: Event;

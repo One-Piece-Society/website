@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import EventMangaPages from "~/components/Events/EventMangaPages";
 import EventTile from "~/components/Events/EventTile";
@@ -9,9 +11,9 @@ import { api } from "~/util/api";
 import Layout from "~/components/layouts/Layout";
 import LoadingPage from "~/components/pages/LoadingPage";
 import { useEffect, useState } from "react";
-import { DefaultSEO, baseUrl } from "~/util/SEO";
 import { type SEOProps } from "~/util/types";
-import SEO from "~/components/layouts/SEO";
+import SEO, { baseUrl } from "~/components/layouts/SEO";
+import { DefaultSEO } from "~/util/SEO";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);

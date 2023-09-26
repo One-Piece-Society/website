@@ -1,11 +1,5 @@
+import { baseUrl } from "~/components/layouts/SEO";
 import { type SEOProps } from "./types";
-
-const environmentUrl =
-  process.env.NEXT_PUBLIC_BYPASS_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL;
-
-export const baseUrl: string = environmentUrl
-  ? `https://${environmentUrl}`
-  : `http://localhost:3000`;
 
 export const DefaultSEO: SEOProps = {
   title: "UNSW One Piece Society's Website",
