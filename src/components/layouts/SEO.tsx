@@ -1,14 +1,24 @@
 import Head from "next/head";
+import { api } from "~/util/api";
 import { type SEOProps } from "~/util/types";
 
 const environmentUrl =
-  process.env.NEXT_PUBLIC_BYPASS_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL;
+  process.env.NEXT_PUBLIC_VERCEL_URL ?? process.env.NEXT_PUBLIC_BYPASS_URL;
 
 export const baseUrl: string = environmentUrl
   ? `https://${environmentUrl}`
   : `http://localhost:3000`;
 
 const SEO: React.FC = () => {
+  const getEventName = () => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("event")) {
+        return decodeURIComponent(params.get("event") ?? "");
+      }
+    }
+    return "";
+  };
   const DEFAULT_IMAGE =
     "https://media.discordapp.net/attachments/956904556132962334/957112846716661790/One_Piece_Logo.png";
   const favicon = `${baseUrl}/static/favicon.ico`;
@@ -22,18 +32,16 @@ const SEO: React.FC = () => {
     url: baseUrl,
   };
 
-  const getEventName = () => {
-    if (typeof window !== "undefined") {
-      const params = new URLSearchParams(window.location.search);
-      if (params.get("event")) {
-        return decodeURIComponent(params.get("event") ?? "");
-      }
-    }
-    return "";
-  };
+  const res = api.event.getEvent.useQuery({
+    id: getEventName(),
+  });
 
   let formattedTitle = DefaultSEO.title;
-  if (getEventName()) formattedTitle = getEventName() + " | OpSoc";
+  let formattedDescription = DefaultSEO.description;
+  if (getEventName()) {
+    formattedTitle = getEventName() + " | OpSoc";
+    formattedDescription = res.data?.description ?? DefaultSEO.description;
+  }
 
   return (
     <Head>
@@ -52,7 +60,7 @@ const SEO: React.FC = () => {
       <meta property="og:type" content="website" />
       <meta property="og:url" content={DefaultSEO.url} />
       <meta property="og:title" content={formattedTitle} />
-      <meta property="og:description" content={DefaultSEO.description} />
+      <meta property="og:description" content={formattedDescription} />
       <meta property="og:image" content={DefaultSEO.image ?? DEFAULT_IMAGE} />
       <meta property="og:image:width" content="320" />
       <meta property="og:image:height" content="320" />
@@ -61,7 +69,7 @@ const SEO: React.FC = () => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content={DefaultSEO.url} />
       <meta property="twitter:title" content={formattedTitle} />
-      <meta property="twitter:description" content={DefaultSEO.description} />
+      <meta property="twitter:description" content={formattedDescription} />
       <meta
         property="twitter:image"
         content={DefaultSEO.image ?? DEFAULT_IMAGE}
