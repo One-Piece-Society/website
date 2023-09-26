@@ -41,7 +41,7 @@ export const mainRouter = createTRPCRouter({
 export type responseDataType = {
   imagePanel: ImagePanel[];
   socials: Social[];
-  featureEvent: Event;
+  featureEvent: EventPanel;
   events: Event[];
   panels: EventPanel[];
   executives: Team[];
