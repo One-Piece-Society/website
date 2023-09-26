@@ -12,16 +12,9 @@ import { useEffect, useState } from "react";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
-  const [eventName, setEventName] = useState("");
   const response = api.main.getAllPageData.useQuery();
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const params = new URLSearchParams(window.location.search);
-      if (params.get("event")) {
-        setEventName(decodeURIComponent(params.get("event") ?? ""));
-      }
-    }
     setTimeout(() => {
       setLoading(false);
     }, 2000);
@@ -30,7 +23,7 @@ const Home = () => {
   if (!response.isSuccess || loading) return <LoadingPage />;
 
   return (
-    <Layout eventName={eventName}>
+    <Layout>
       <section className="flex h-fit w-full flex-row justify-start px-4 pt-4 md:min-h-screen md:px-16 md:pt-16">
         <div className="flex h-fit w-full flex-col items-start justify-center md:min-h-screen  md:w-1/3">
           <h1 className="pb-4 pt-24 font-heading text-3xl leading-normal drop-shadow-lg md:text-6xl">

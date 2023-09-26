@@ -4,13 +4,12 @@ import SEO from "./SEO";
 
 type Props = {
   children: React.ReactNode;
-  eventName?: string;
 };
 
-const Layout: React.FC<Props> = ({ children, eventName }) => {
+const Layout: React.FC<Props> = ({ children }) => {
   return (
     <>
-      <SEO eventName={eventName} />
+      <SEO />
       <main
         className="flex h-full w-full flex-col
       justify-between bg-primary-red text-white"
