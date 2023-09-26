@@ -6,7 +6,7 @@ export const eventRouter = createTRPCRouter({
     .input(z.object({ id: z.string().optional() }))
     .query(async ({ input, ctx }) => {
       return await ctx.prisma.event.findFirstOrThrow({
-        where: { id: input.id },
+        where: { title: input.id },
       });
     }),
 });

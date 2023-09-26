@@ -21,8 +21,7 @@ const SEO: React.FC = () => {
     }
     return "";
   };
-  const DEFAULT_IMAGE =
-    "https://media.discordapp.net/attachments/956904556132962334/957112846716661790/One_Piece_Logo.png";
+
   const favicon = `${baseUrl}/static/favicon.ico`;
 
   const DefaultSEO: SEOProps = {
