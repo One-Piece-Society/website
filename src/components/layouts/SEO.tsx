@@ -46,8 +46,8 @@ const SEO: React.FC<{
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
-      <meta property="og:image:width" content="320" />
-      <meta property="og:image:height" content="320" />
+      <meta property="og:image:width" content="540" />
+      <meta property="og:image:height" content="304" />
       <meta property="og:image:type" content="image/png" />
 
       <meta name="twitter:card" content="summary_large_image" />
