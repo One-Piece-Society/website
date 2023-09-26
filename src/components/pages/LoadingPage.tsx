@@ -14,6 +14,7 @@ const LoadingPage = () => {
         className="h-fit w-fit"
       >
         <Image
+          priority
           src="/opsoc-logo.png"
           alt="logo"
           width={400}
