@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { type SEOProps } from "~/util/types";
 
-type Props = { data: SEOProps & { eventName?: string } };
+type Props = { eventName?: string };
 
 const environmentUrl =
   process.env.NEXT_PUBLIC_BYPASS_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL;
@@ -10,19 +10,28 @@ export const baseUrl: string = environmentUrl
   ? `https://${environmentUrl}`
   : `http://localhost:3000`;
 
-const SEO: React.FC<Props> = ({ data }) => {
+export const DefaultSEO: SEOProps = {
+  title: "UNSW One Piece Society's Website",
+  image:
+    "https://media.discordapp.net/attachments/956904556132962334/957112846716661790/One_Piece_Logo.png",
+  description:
+    "Dive into the world of One Piece with the UNSW Society! Join us for exciting discussions, anime screenings, and vibrant events that capture the essence of Oda's masterpiece. Whether you're a devoted fan or a curious newcomer, become part of our Nakama and experience the thrill of One Piece in a community as dynamic as the Grand Line itself!",
+  url: baseUrl,
+};
+
+const SEO: React.FC<Props> = ({ eventName }) => {
   const DEFAULT_IMAGE =
     "https://media.discordapp.net/attachments/956904556132962334/957112846716661790/One_Piece_Logo.png";
   const favicon = `${baseUrl}/static/favicon.ico`;
 
-  let formattedTitle = data.title;
-  if (data.eventName) formattedTitle = data.eventName + " | OpSoc";
+  let formattedTitle = DefaultSEO.title;
+  if (eventName) formattedTitle = eventName + " | OpSoc";
 
   return (
     <Head>
       <title>{formattedTitle}</title>
       <meta name="title" content={formattedTitle} />
-      <meta name="description" content={data.description} />
+      <meta name="description" content={DefaultSEO.description} />
       <meta
         name="keywords"
         content="unsw, UNSW, one piece, Luffy, manga, anime, Sydney"
@@ -33,19 +42,22 @@ const SEO: React.FC<Props> = ({ data }) => {
       <link rel="icon" href={favicon} />
 
       <meta property="og:type" content="website" />
-      <meta property="og:url" content={data.url} />
+      <meta property="og:url" content={DefaultSEO.url} />
       <meta property="og:title" content={formattedTitle} />
-      <meta property="og:description" content={data.description} />
-      <meta property="og:image" content={data.image ?? DEFAULT_IMAGE} />
+      <meta property="og:description" content={DefaultSEO.description} />
+      <meta property="og:image" content={DefaultSEO.image ?? DEFAULT_IMAGE} />
       <meta property="og:image:width" content="320" />
       <meta property="og:image:height" content="320" />
       <meta property="og:image:type" content="image/png" />
 
       <meta name="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={data.url} />
+      <meta property="twitter:url" content={DefaultSEO.url} />
       <meta property="twitter:title" content={formattedTitle} />
-      <meta property="twitter:description" content={data.description} />
-      <meta property="twitter:image" content={data.image ?? DEFAULT_IMAGE} />
+      <meta property="twitter:description" content={DefaultSEO.description} />
+      <meta
+        property="twitter:image"
+        content={DefaultSEO.image ?? DEFAULT_IMAGE}
+      />
       <meta name="twitter:image:alt" content="Logo" />
     </Head>
   );

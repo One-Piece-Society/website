@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import EventMangaPages from "~/components/Events/EventMangaPages";
 import EventTile from "~/components/Events/EventTile";

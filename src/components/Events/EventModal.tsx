@@ -28,7 +28,7 @@ const EventModal: React.FC<Props> = ({ data, isOpen, closeModal }) => {
     try {
       setCopied(true);
       void navigator.clipboard
-        .writeText(encodeURIComponent(baseUrl + "?event=" + data.title))
+        .writeText(baseUrl + "?event=" + encodeURIComponent(data.title))
         .then(() => {
           setTimeout(() => {
             setCopied(false);

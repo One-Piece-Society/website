@@ -1,8 +1,6 @@
-import { DefaultSEO } from "~/util/SEO";
 import Footer from "./Footer";
 import Header from "./Header";
 import SEO from "./SEO";
-import { type SEOProps } from "~/util/types";
 
 type Props = {
   children: React.ReactNode;
@@ -10,13 +8,9 @@ type Props = {
 };
 
 const Layout: React.FC<Props> = ({ children, eventName }) => {
-  const seoData: SEOProps & { eventName?: string } = {
-    ...DefaultSEO,
-    eventName,
-  };
   return (
     <>
-      <SEO data={seoData} />
+      <SEO eventName={eventName} />
       <main
         className="flex h-full w-full flex-col
       justify-between bg-primary-red text-white"
