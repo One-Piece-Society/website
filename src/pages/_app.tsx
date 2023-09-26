@@ -2,6 +2,7 @@ import { type AppType } from "next/dist/shared/lib/utils";
 import "~/styles/globals.css";
 import { Dela_Gothic_One, DM_Sans } from "next/font/google";
 import { api } from "~/util/api";
+import SEO from "~/components/layouts/SEO";
 
 export const DelaGothicOne = Dela_Gothic_One({
   subsets: ["latin"],
@@ -16,9 +17,12 @@ export const DMSans = DM_Sans({
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
-    <main className={`${DelaGothicOne.variable} ${DMSans.variable}`}>
-      <Component {...pageProps} />
-    </main>
+    <>
+      <SEO />
+      <main className={`${DelaGothicOne.variable} ${DMSans.variable}`}>
+        <Component {...pageProps} />
+      </main>
+    </>
   );
 };
 

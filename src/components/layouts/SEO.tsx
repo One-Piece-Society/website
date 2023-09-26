@@ -40,9 +40,11 @@ const SEO: React.FC = () => {
 
   let formattedTitle = DefaultSEO.title;
   let formattedDescription = DefaultSEO.description;
+  let preferredImage = DefaultSEO.image;
   if (getEventName()) {
     formattedTitle = getEventName() + " | OpSoc";
     formattedDescription = res.data?.description ?? DefaultSEO.description;
+    preferredImage = res.data?.image ?? DefaultSEO.image;
   }
 
   return (
@@ -63,7 +65,7 @@ const SEO: React.FC = () => {
       <meta property="og:url" content={DefaultSEO.url} />
       <meta property="og:title" content={formattedTitle} />
       <meta property="og:description" content={formattedDescription} />
-      <meta property="og:image" content={DefaultSEO.image ?? DEFAULT_IMAGE} />
+      <meta property="og:image" content={preferredImage} />
       <meta property="og:image:width" content="320" />
       <meta property="og:image:height" content="320" />
       <meta property="og:image:type" content="image/png" />
@@ -72,10 +74,7 @@ const SEO: React.FC = () => {
       <meta property="twitter:url" content={DefaultSEO.url} />
       <meta property="twitter:title" content={formattedTitle} />
       <meta property="twitter:description" content={formattedDescription} />
-      <meta
-        property="twitter:image"
-        content={DefaultSEO.image ?? DEFAULT_IMAGE}
-      />
+      <meta property="twitter:image" content={preferredImage} />
       <meta name="twitter:image:alt" content="Logo" />
     </Head>
   );
