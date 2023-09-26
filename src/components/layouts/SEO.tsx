@@ -3,11 +3,13 @@ import { api } from "~/util/api";
 import { type SEOProps } from "~/util/types";
 
 const environmentUrl =
-  process.env.NEXT_PUBLIC_VERCEL_URL ?? process.env.NEXT_PUBLIC_BYPASS_URL;
+  process.env.NEXT_PUBLIC_VERCEL_URL ??
+  process.env.NEXT_PUBLIC_BYPASS_URL ??
+  "localhost:3000";
 
-export const baseUrl: string = environmentUrl
-  ? `https://${environmentUrl}`
-  : `http://localhost:3000`;
+export const baseUrl: string = environmentUrl.startsWith("http")
+  ? environmentUrl
+  : `https://${environmentUrl}`;
 
 const SEO: React.FC = () => {
   const getEventName = () => {
