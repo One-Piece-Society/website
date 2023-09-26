@@ -13,7 +13,7 @@ import { type Event } from "@prisma/client";
 import Image from "next/image";
 import { Fragment, useState } from "react";
 import ImageGallery from "../Image/ImageGallery";
-import { baseUrl } from "../layouts/SEO";
+import { baseUrl } from "~/util/SEO";
 
 interface Props {
   data: Event;
@@ -27,11 +27,13 @@ const EventModal: React.FC<Props> = ({ data, isOpen, closeModal }) => {
   const handleShare = () => {
     try {
       setCopied(true);
-      void navigator.clipboard.writeText(baseUrl).then(() => {
-        setTimeout(() => {
-          setCopied(false);
-        }, 2000);
-      });
+      void navigator.clipboard
+        .writeText(baseUrl + "?event=" + data.id)
+        .then(() => {
+          setTimeout(() => {
+            setCopied(false);
+          }, 2000);
+        });
     } catch (error) {
       console.error("Clipboard writeText error:", error);
     }

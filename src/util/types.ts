@@ -7,3 +7,10 @@ export interface EventPanel {
   event: Event;
   eventId: string;
 }
+
+export interface SEOProps {
+  title: string;
+  image?: string;
+  description: string;
+  url: string;
+}
