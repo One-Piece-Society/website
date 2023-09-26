@@ -9,10 +9,10 @@ const SEO: React.FC<{ eventId?: string }> = ({ eventId }) => {
   const event = api.event.getEvent.useQuery({ id: eventId });
 
   useEffect(() => {
-    if (event.isSuccess) {
+    if (event.isSuccess && typeof window !== "undefined") {
       setSeoData({
         title: event.data.title,
-        description: event.data.description + " | UNSW OpSoc",
+        description: event.data.description + " | UNSW OPSoc",
         image: event.data.image ?? "",
         url: baseUrl + "?event=" + eventId,
       });
