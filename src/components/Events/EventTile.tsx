@@ -39,13 +39,16 @@ const EventTile: React.FC<Props> = ({ data }) => {
             <div className="absolute flex h-full w-1/2 flex-col items-start justify-end p-4 md:p-8">
               <div className="bg-white p-4 drop-shadow-lg md:p-8">
                 <p className="pb-2 font-body text-xs font-light md:text-base">
-                  {getEventCompletionStatus(data.startTime, data.endTime)}
+                  {getEventCompletionStatus(
+                    new Date(data.startTime),
+                    new Date(data.endTime),
+                  )}
                 </p>
                 <p className="font-body text-xl font-bold md:text-3xl">
                   {data.title}
                 </p>
                 <p className="font-body text-base font-light text-black/80 md:text-xl">
-                  {data.startTime.toLocaleString("en-AU", {
+                  {new Date(data.startTime).toLocaleString("en-AU", {
                     year: "numeric",
                     month: "long",
                     day: "numeric",

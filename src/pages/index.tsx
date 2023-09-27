@@ -5,28 +5,33 @@ import HeroImagePanels from "~/components/Hero/HeroImagePanels";
 import SectionBar from "~/components/layouts/SectionBar";
 import SocialsTiles from "~/components/Socials/SocialsTiles";
 import TeamTiles from "~/components/Team/TeamTiles";
-import { api } from "~/util/api";
 import Layout from "~/components/layouts/Layout";
 import LoadingPage from "~/components/pages/LoadingPage";
 import React, { useEffect, useState } from "react";
 import SEO, { DefaultSEO } from "~/components/layouts/SEO";
-import { type GetServerSideProps } from "next";
+import { type GetServerSidePropsResult, type GetServerSideProps } from "next";
 import { getEvent } from "~/server/api/routers/event";
 import { prisma } from "~/server/db";
+import {
+  getAllPageData,
+  type responseDataType,
+} from "~/server/api/routers/main";
 
 interface Props {
   formattedTitle: string;
   formattedDescription: string;
   preferredImage: string; // Ensure that preferredImage is always a string
+  data: responseDataType;
 }
 
 const Index: React.FC<Props> = ({
   formattedDescription,
   formattedTitle,
   preferredImage,
+  data,
 }) => {
   const [loading, setLoading] = useState(true);
-  const response = api.main.getAllPageData.useQuery();
+  //   const response = api.main.getAllPageData.useQuery();
 
   useEffect(() => {
     setTimeout(() => {
@@ -41,7 +46,7 @@ const Index: React.FC<Props> = ({
         description={formattedDescription}
         image={preferredImage}
       />
-      {!response.isSuccess || loading ? (
+      {loading ? (
         <LoadingPage />
       ) : (
         <Layout>
@@ -71,7 +76,7 @@ const Index: React.FC<Props> = ({
               </Link>
             </div>
             <div className="hidden min-h-screen w-2/3 flex-col items-start justify-center bg-fixed md:flex">
-              <HeroImagePanels data={response.data.imagePanel ?? []} />
+              <HeroImagePanels data={data.imagePanel} />
             </div>
           </section>
           <section
@@ -83,14 +88,14 @@ const Index: React.FC<Props> = ({
               image="https://12dimension.files.wordpress.com/2019/10/one_piece_ch958_p010-011-e1571959134232.jpg"
             />
 
-            {response.data.featureEvent && (
+            {data.featureEvent && (
               <div className="h-full max-h-96 w-full">
-                <EventTile data={response.data.featureEvent} />
+                <EventTile data={data.featureEvent} />
               </div>
             )}
             <div className="flex h-full w-full flex-row justify-center p-2 md:h-screen md:p-8">
               <div className="h-full w-full md:w-11/12">
-                <EventMangaPages data={response.data.panels ?? []} />
+                <EventMangaPages data={data.panels} />
               </div>
             </div>
           </section>
@@ -104,7 +109,7 @@ const Index: React.FC<Props> = ({
             />
             <div className="flex h-full w-full flex-row justify-center p-2 md:p-8">
               <div className="h-full w-full py-4 md:w-11/12 md:py-16">
-                <SocialsTiles data={response.data.socials ?? []} />
+                <SocialsTiles data={data.socials} />
               </div>
             </div>
           </section>
@@ -122,17 +127,17 @@ const Index: React.FC<Props> = ({
                   Executives
                 </h1>
                 <TeamTiles
-                  data={response.data.executives.sort((a, b) =>
+                  data={data.executives.sort((a, b) =>
                     a.order >= b.order ? 1 : -1,
                   )}
                 />
-                {response.data.subcommittee && (
+                {data.subcommittee && (
                   <>
                     <h1 className="py-4 font-body text-2xl font-semibold md:py-8 md:text-5xl">
                       Subcommittee
                     </h1>
                     <TeamTiles
-                      data={response.data.subcommittee.sort((a, b) =>
+                      data={data.subcommittee.sort((a, b) =>
                         a.order >= b.order ? 1 : -1,
                       )}
                     />
@@ -150,9 +155,10 @@ const Index: React.FC<Props> = ({
 // mainly doing this just to get the relevant information for SEO
 export const getServerSideProps: GetServerSideProps<Props> = async ({
   query,
-}) => {
+}): Promise<GetServerSidePropsResult<Props>> => {
   const event = query.event as string;
   const res = await getEvent({ prisma: prisma, id: event });
+  const data = await getAllPageData({ prisma: prisma });
   // Define your default SEO values
   let formattedTitle = DefaultSEO.title;
   let formattedDescription = DefaultSEO.description;
@@ -166,7 +172,13 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
   }
 
   return {
-    props: { formattedTitle, formattedDescription, preferredImage },
+    props: {
+      formattedTitle,
+      formattedDescription,
+      preferredImage,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      data: JSON.parse(JSON.stringify(data)),
+    },
   };
 };
 export default Index;

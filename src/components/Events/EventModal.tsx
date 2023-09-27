@@ -86,13 +86,13 @@ const EventModal: React.FC<Props> = ({ data, isOpen, closeModal }) => {
                   </p>
                   <p className="flex items-center gap-2 font-body text-sm md:text-base">
                     <ClockIcon className="inline-block h-5 w-5 text-black" />
-                    {data?.startTime.toLocaleString("en-AU", {
+                    {new Date(data?.startTime).toLocaleString("en-AU", {
                       hour: "numeric",
                       minute: "numeric",
                       hour12: true,
                     }) +
                       " - " +
-                      data.endTime.toLocaleString("en-AU", {
+                      new Date(data.endTime).toLocaleString("en-AU", {
                         hour: "numeric",
                         minute: "numeric",
                         hour12: true,
@@ -100,7 +100,7 @@ const EventModal: React.FC<Props> = ({ data, isOpen, closeModal }) => {
                   </p>
                   <p className="flex items-center gap-2 font-body text-sm md:text-base">
                     <CalendarDaysIcon className="inline-block h-5 w-5 text-black" />
-                    {data.startTime.toLocaleString("en-AU", {
+                    {new Date(data.startTime).toLocaleString("en-AU", {
                       year: "numeric",
                       month: "long",
                       day: "numeric",
