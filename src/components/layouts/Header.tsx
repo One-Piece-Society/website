@@ -67,7 +67,7 @@ const Header = () => {
   }, []);
   return (
     <>
-      <div className="fixed z-50 hidden h-fit w-full flex-row justify-between bg-primary-red px-4 py-2 text-white md:flex md:px-8">
+      <div className="fixed z-50 hidden h-fit w-full flex-row items-center justify-between bg-primary-red py-1 text-white backdrop-blur-md md:flex">
         <Image
           alt="logo"
           src={
@@ -75,14 +75,14 @@ const Header = () => {
           }
           height={500}
           width={500}
-          className="h-16 w-fit object-contain"
+          className="absolute left-4 h-10 w-fit object-cover"
         />
-        <div className="hidden h-full flex-row space-x-24 py-2 focus:outline-none md:flex">
+        <div className="hidden h-full w-full flex-row items-center justify-center space-x-24 py-2 focus:outline-none md:flex">
           {links.map((link) => (
             <button
               onClick={() => handleHeadingClick(link.href)}
               key={link.href}
-              className="group p-2 font-body text-3xl"
+              className="group pb-0.5 font-body text-xl"
             >
               {link.name}
               <span
@@ -95,9 +95,11 @@ const Header = () => {
         </div>
         <Link
           href="https://member.arc.unsw.edu.au/s/clubdetail?clubid=0016F0000459PRd"
-          className="hidden h-fit border border-white bg-primary-red p-4 drop-shadow-lg md:block"
+          className="absolute right-4 flex h-fit justify-end border border-white bg-primary-red px-2 py-2 drop-shadow-lg"
         >
-          <p className="font-body text-xl">Become a Member</p>
+          <p className="whitespace-nowrap font-body text-base font-bold">
+            Become a Member
+          </p>
         </Link>
       </div>
       <motion.div
@@ -111,7 +113,7 @@ const Header = () => {
               open && "bg-white text-primary-red"
             } `}
           >
-            <div className="flex flex-row justify-between">
+            <div className="flex flex-row justify-between py-1">
               <Menu.Item key={"home"} href="/" as="a">
                 <Image
                   alt="logo"
@@ -120,7 +122,7 @@ const Header = () => {
                   }
                   height={500}
                   width={500}
-                  className="h-16 w-fit object-contain"
+                  className="h-10 w-fit object-contain"
                 />
               </Menu.Item>
               <Menu.Button className="block text-2xl focus:outline-none md:hidden">
@@ -150,7 +152,7 @@ const Header = () => {
                   as="a"
                   target="_blank"
                   href="https://member.arc.unsw.edu.au/s/clubdetail?clubid=0016F0000459PRd"
-                  className="pb-2 font-body text-3xl font-bold"
+                  className="px-2 pb-2 font-body text-3xl font-bold"
                 >
                   Become a Member
                 </Menu.Item>
