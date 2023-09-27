@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import InfoBlock from "./InfoBlock";
 import { type EventPanel } from "~/util/types";
 import EventModal from "./EventModal";
@@ -13,15 +13,6 @@ const EventMangaPages: React.FC<Props> = ({ data }) => {
   const [selectedEvent, setSelectedEvent] = useState<Event | undefined>(
     data.find((x) => x.position === "A")?.event,
   );
-  // Check if the modal query parameter is present
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("event")) {
-      const eventName = decodeURIComponent(params.get("event") ?? "");
-      setSelectedEvent(data.find((x) => x.event.title === eventName)?.event);
-      setShowModal(true);
-    }
-  }, [data]);
 
   const handleClick = (position: string) => {
     setSelectedEvent(data.find((x) => x.position === position)?.event);

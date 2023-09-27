@@ -16,13 +16,15 @@ import ImageGallery from "../Image/ImageGallery";
 import { baseUrl } from "../layouts/SEO";
 
 interface Props {
-  data: Event;
+  data: Event | undefined;
   closeModal: () => void;
   isOpen: boolean;
 }
 
 const EventModal: React.FC<Props> = ({ data, isOpen, closeModal }) => {
   const [copied, setCopied] = useState(false);
+
+  if (!data) return <></>;
 
   const handleShare = () => {
     try {
