@@ -67,7 +67,7 @@ const Header = () => {
   }, []);
   return (
     <>
-      <div className="fixed z-50 hidden h-fit w-full flex-row items-center justify-between bg-primary-red py-1 text-white backdrop-blur-md md:flex">
+      <div className="fixed z-50 hidden h-12 w-full flex-row items-center justify-between bg-primary-red py-1 text-white backdrop-blur-md md:flex">
         <Image
           alt="logo"
           src={
@@ -82,7 +82,7 @@ const Header = () => {
             <button
               onClick={() => handleHeadingClick(link.href)}
               key={link.href}
-              className="group pb-0.5 font-body text-xl"
+              className="group font-body text-xl"
             >
               {link.name}
               <span
@@ -101,11 +101,11 @@ const Header = () => {
             Become a Member
           </p>
         </Link>
+        <motion.div
+          className="fixed left-0 right-0 top-0 z-50 h-1 origin-top-left bg-white"
+          style={{ scaleX: scrollYProgress }}
+        />
       </div>
-      <motion.div
-        className="fixed left-0 right-0 top-0 z-50 h-1 origin-top-left bg-white"
-        style={{ scaleX: scrollYProgress }}
-      />
       <Menu>
         {({ open }: { open: boolean }) => (
           <div
@@ -113,6 +113,12 @@ const Header = () => {
               open && "bg-white text-primary-red"
             } `}
           >
+            <motion.div
+              className={`fixed left-0 right-0 top-0 z-50 h-1 origin-top-left ${
+                open ? "bg-primary-red" : "bg-white"
+              }`}
+              style={{ scaleX: scrollYProgress }}
+            />
             <div className="flex flex-row justify-between py-1">
               <Menu.Item key={"home"} href="/" as="a">
                 <Image
