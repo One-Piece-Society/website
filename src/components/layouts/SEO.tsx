@@ -9,7 +9,7 @@ const environmentUrl =
 // this is so hardcoded please send help TwT ~ Hari
 export const baseUrl: string = environmentUrl.startsWith("http")
   ? environmentUrl
-  : `www.opsoc.tk/`;
+  : `https://unsw-one-piece-society.vercel.app/`;
 
 export const DefaultSEO: SEOProps = {
   title: "UNSW One Piece Society's Website",
