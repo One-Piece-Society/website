@@ -1,12 +1,16 @@
-# Create T3 App
+# 🏴‍☠️ UNSW One Piece Society's Website
+
+![logo](https://media.discordapp.net/attachments/1092987636035092662/1157162081364213841/image.png?ex=65179aab&is=6516492b&hm=187d0dc0e3006b172ff3146eb943f298eece3d77881da58d74663447951b46b9&=&width=2182&height=1227)
+
+## 👥 Team
+
+The First Version of this website was Designed and Developed by [Hari Pramod](https://hari-portfolio-ten.vercel.app) the First Technical Director of UNSW One Piece Society in 2023. With assets and Art Direction from The Marketing Team.
+
+Special thanks to [Alex](https://github.com/Gitalexzhong) for Connecting the Website to his Domain [https://opsoc.tk/](https://opsoc.tk/), Jeet and [Colby](https://github.com/ColbyRehn) for Finding Artwork to use in the website.
+
+## 💻 Technology
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
-
-## What's next? How do I make an app with this?
-
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
-
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
 
 - [Next.js](https://nextjs.org)
 - [NextAuth.js](https://next-auth.js.org)
@@ -14,15 +18,10 @@ If you are not familiar with the different technologies used in this project, pl
 - [Tailwind CSS](https://tailwindcss.com)
 - [tRPC](https://trpc.io)
 
-## Learn More
+## 🚀 Deployment
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+App Deployed on [Vercel](https://vercel.com/home)
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+Database Deployed on [Supabase](https://supabase.com/)
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+All for Free ! Thank you Vercel and Supabase ❤️

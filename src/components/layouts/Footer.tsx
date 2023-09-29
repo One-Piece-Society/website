@@ -17,6 +17,13 @@ const Footer = () => {
           <span className="inline-block underline">onepieceunsw@gmail.com</span>{" "}
           about the details.
         </p>
+        <p className="font-body text-xs leading-relaxed md:text-base">
+          Designed and Developed by{" "}
+          <a href="https://hari-portfolio-ten.vercel.app" className="underline">
+            Hari Pramod
+          </a>{" "}
+          ❤️
+        </p>
         <h1 className="font-heading text-lg font-light md:text-xl">
           UNSW One Piece Society
         </h1>
