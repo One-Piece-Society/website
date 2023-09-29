@@ -18,14 +18,7 @@ const config = {
     defaultLocale: "en",
   },
   images: {
-    domains: [
-      "i.imgur.com",
-      "media.discordapp.net",
-      "media.licdn.com",
-      "cdn.discordapp.com",
-      "www.animenarrative.com",
-      "12dimension.files.wordpress.com",
-    ],
+    domains: ["i.imgur.com"],
   },
 };
 

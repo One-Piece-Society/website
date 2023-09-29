@@ -108,7 +108,7 @@ const Index: React.FC<Props> = ({
             >
               <SectionBar
                 title="Events"
-                image="https://12dimension.files.wordpress.com/2019/10/one_piece_ch958_p010-011-e1571959134232.jpg"
+                image="https://i.imgur.com/LNv7l31.jpg"
               />
 
               {data.featureEvent && (
@@ -128,7 +128,7 @@ const Index: React.FC<Props> = ({
             >
               <SectionBar
                 title="Socials"
-                image="https://media.discordapp.net/attachments/1092987636035092662/1155801524350500894/E6hfKUdX0AQtHwU.png"
+                image="https://i.imgur.com/4YypPSL.png"
               />
               <div className="flex h-full w-full flex-row justify-center p-2 md:p-8">
                 <div className="h-full w-full py-4 md:w-11/12 md:py-16">
@@ -142,7 +142,7 @@ const Index: React.FC<Props> = ({
             >
               <SectionBar
                 title="Team"
-                image="https://www.animenarrative.com/wp-content/uploads/2021/06/mg0z2een5cg51-1130x1080.jpg"
+                image="https://i.imgur.com/BPRrehz.png"
               />
               <div className="flex h-full w-full flex-row justify-center p-2 md:p-8">
                 <div className="h-full w-full py-4 md:container md:py-16">

@@ -14,9 +14,7 @@ const LayoutOther: React.FC<Props> = ({ children }) => {
           <Link href="/" className="absolute left-4">
             <Image
               alt="logo"
-              src={
-                "https://media.discordapp.net/attachments/956904556132962334/957114784036319242/One_Piece_Logo_C_fixed.png"
-              }
+              src="https://i.imgur.com/QhkPrT8.png"
               height={500}
               width={500}
               className="h-10 w-fit object-cover"

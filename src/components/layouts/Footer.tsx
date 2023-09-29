@@ -37,7 +37,7 @@ const Footer = () => {
           <span className="inline-block">
             <Image
               alt="discord-logo"
-              src="https://cdn.discordapp.com/attachments/1092987636035092662/1145974816113967205/636e0a6cc3c481a15a141738_icon_clyde_white_RGB.png"
+              src="https://i.imgur.com/AzY9SDM.png"
               width={250}
               height={250}
               className="h-6 w-6 object-contain"
@@ -53,7 +53,7 @@ const Footer = () => {
           <span className="inline-block">
             <Image
               alt="facebook-logo"
-              src="https://media.discordapp.net/attachments/1092987636035092662/1145981654201024522/Facebook-logo-blue-circle-large-transparent-png.png"
+              src="https://i.imgur.com/8dkuxrF.png"
               width={250}
               height={250}
               className="h-6 w-6 object-contain brightness-0 grayscale invert"
@@ -69,7 +69,7 @@ const Footer = () => {
           <span className="inline-block">
             <Image
               alt="arc-logo"
-              src="https://media.discordapp.net/attachments/1092987636035092662/1145982066610143262/Arc20Clubs20Logo202019-solid20white.png"
+              src="https://i.imgur.com/Wwgmnir.png"
               width={250}
               height={250}
               className="h-6 w-6 object-contain"

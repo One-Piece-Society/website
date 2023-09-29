@@ -8,8 +8,7 @@ interface Props {
 }
 
 const TeamTiles: React.FC<Props> = ({ data }) => {
-  const defaultTeamImage =
-    "https://media.discordapp.net/attachments/1092987636035092662/1146437571237388429/zoro-pfp-02.png";
+  const defaultTeamImage = "https://i.imgur.com/MV1YNNw.png";
   return (
     <div className="grid h-full w-full grid-flow-row grid-cols-2 gap-8 md:grid-cols-3 xl:grid-cols-4">
       {data.map((e, i) => (
