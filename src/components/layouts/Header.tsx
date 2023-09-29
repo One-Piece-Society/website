@@ -2,7 +2,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { motion, useScroll } from "framer-motion";
 
 const Header = () => {
@@ -65,18 +65,21 @@ const Header = () => {
     document.addEventListener("scroll", handleScroll);
     return () => document.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <>
       <div className="fixed z-50 hidden h-12 w-full flex-row items-center justify-between bg-primary-red py-1 text-white backdrop-blur-md md:flex">
-        <Image
-          alt="logo"
-          src={
-            "https://media.discordapp.net/attachments/956904556132962334/957114784036319242/One_Piece_Logo_C_fixed.png"
-          }
-          height={500}
-          width={500}
-          className="absolute left-4 h-10 w-fit object-cover"
-        />
+        <Link href="/" className="absolute left-4">
+          <Image
+            alt="logo"
+            src={
+              "https://media.discordapp.net/attachments/956904556132962334/957114784036319242/One_Piece_Logo_C_fixed.png"
+            }
+            height={500}
+            width={500}
+            className="h-10 w-fit object-cover"
+          />
+        </Link>
         <div className="hidden h-full w-full flex-row items-center justify-center space-x-24 py-2 focus:outline-none md:flex">
           {links.map((link) => (
             <button

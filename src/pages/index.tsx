@@ -41,7 +41,9 @@ const Index: React.FC<Props> = ({
       const params = new URLSearchParams(window.location.search);
       if (params.get("event")) {
         const eventName = decodeURIComponent(params.get("event") ?? "");
-        setSelectedEvent(data.events.find((x) => x.id === eventName));
+        let event = data.events.find((x) => x.id === eventName);
+        if (!event) event = data.featureEvent!;
+        setSelectedEvent(event);
         setShowModal(true);
       }
     }
@@ -70,7 +72,7 @@ const Index: React.FC<Props> = ({
           )}
           <Layout>
             <section className="flex h-fit w-full flex-row justify-start px-4 pt-4 md:min-h-screen md:px-16 md:pt-16">
-              <div className="flex h-fit w-full flex-col items-start justify-center md:min-h-screen  md:w-1/3">
+              <div className="flex h-fit w-full flex-col items-start justify-center md:min-h-screen md:w-1/3">
                 <h1 className="pb-4 pt-24 font-heading text-3xl leading-normal drop-shadow-lg md:text-6xl">
                   One Piece Society
                 </h1>
@@ -79,11 +81,13 @@ const Index: React.FC<Props> = ({
                 </h2>
                 <p className="py-6 font-body text-base font-extralight leading-normal md:text-xl">
                   Dive into the world of One Piece with the UNSW Society! Join
-                  us for exciting discussions, anime screenings, and vibrant
-                  events that capture the essence of Oda&apos;s masterpiece.
-                  Whether you&apos;re a devoted fan or a curious newcomer,
-                  become part of our Nakama and experience the thrill of One
-                  Piece in a community as dynamic as the Grand Line itself!
+                  us for exciting Weekly read-alongs/watch-alongs, movie nights,
+                  theory-crafting and discussion calls, art sessions and
+                  get-togethers that capture the essence of Oda&apos;s
+                  masterpiece. Whether you&apos;re a devoted fan or a curious
+                  newcomer, become part of our Nakama and experience the thrill
+                  of One Piece in a community as dynamic as the Grand Line
+                  itself!
                 </p>
                 <Link
                   href="https://discord.gg/USxv58e7PQ"

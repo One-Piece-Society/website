@@ -30,7 +30,7 @@ const EventMangaPages: React.FC<Props> = ({ data }) => {
       )}
       <div className="flex h-fit w-full flex-col-reverse gap-4 drop-shadow-lg md:h-full md:flex-row md:p-4">
         {/* Left/Bottom Manga Page */}
-        <div className="flex h-screen w-full flex-col gap-4 md:h-full ">
+        <div className="flex h-screen w-full flex-col gap-4 pt-6 md:h-full md:pt-0 ">
           <div
             className="h-1/2 w-full border-[3px] border-black bg-primary-red bg-cover bg-center"
             style={{

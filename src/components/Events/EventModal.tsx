@@ -8,6 +8,7 @@ import {
   ClockIcon,
   GlobeAltIcon,
   ShareIcon,
+  XCircleIcon,
 } from "@heroicons/react/24/outline";
 import { type Event } from "@prisma/client";
 import Image from "next/image";
@@ -55,19 +56,29 @@ const EventModal: React.FC<Props> = ({ data, isOpen, closeModal }) => {
         >
           <div className="fixed inset-0 bg-black bg-opacity-40" />
         </Transition.Child>
-        <div className="fixed inset-0 overflow-y-auto">
-          <div className="flex h-screen items-center justify-center p-4 text-center">
+        <div className="fixed inset-0 w-screen overflow-y-auto">
+          <div className="flex min-h-full items-center justify-center p-4">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
+              enterFrom="opacity-0 translate-y-96"
+              enterTo="opacity-100 scale-100 translate-y-0"
               leave="ease-in duration-200"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95"
+              leaveFrom="opacity-100 scale-100 translate-y-0"
+              leaveTo="opacity-0 translate-y-96"
             >
-              <Dialog.Panel className="h-fit max-h-[80dvh] w-full max-w-4xl transform overflow-y-auto bg-white text-left align-middle shadow-2xl transition-all md:max-h-[80%]">
-                <div>
+              <Dialog.Panel className="h-full max-h-[80%] w-full max-w-4xl transform bg-white text-left shadow-2xl transition-all md:max-h-[80%]">
+                <div className="relative">
+                  <div className="flex w-full justify-end">
+                    <button
+                      type="button"
+                      title="Close Modal"
+                      onClick={closeModal}
+                      className="absolute p-2"
+                    >
+                      <XCircleIcon className="h-8 w-8 fill-white/20 text-white drop-shadow-xl md:h-12 md:w-12" />
+                    </button>
+                  </div>
                   <Image
                     src={data.image ?? ""}
                     width={1920}
@@ -83,9 +94,9 @@ const EventModal: React.FC<Props> = ({ data, isOpen, closeModal }) => {
                   {data.title}
                 </Dialog.Title>
                 <div className="mt-2 space-y-4 px-4 md:px-8">
-                  <p className="font-body text-xs md:text-sm">
-                    {data?.description}
-                  </p>
+                  <Dialog.Description className="font-body text-xs md:text-sm">
+                    {data.description}
+                  </Dialog.Description>
                   <p className="flex items-center gap-2 font-body text-sm md:text-base">
                     <ClockIcon className="inline-block h-5 w-5 text-black" />
                     {new Date(data?.startTime).toLocaleString("en-AU", {
@@ -109,7 +120,7 @@ const EventModal: React.FC<Props> = ({ data, isOpen, closeModal }) => {
                     })}
                   </p>
                   <p className="flex items-center gap-2 font-body ">
-                    {data?.online ? (
+                    {data.online ? (
                       <>
                         <GlobeAltIcon className="inline-block h-5 w-5 text-black" />
                         Discord
@@ -151,8 +162,8 @@ const EventModal: React.FC<Props> = ({ data, isOpen, closeModal }) => {
                   </button>
                   <button
                     type="button"
-                    className="inline-flex items-end justify-center rounded-md border border-transparent bg-primary-red px-4 py-2 font-body text-sm font-bold text-white hover:bg-primary-red/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 md:text-base"
                     onClick={closeModal}
+                    className="inline-flex items-end justify-center rounded-md border border-transparent bg-primary-red px-4 py-2 font-body text-sm font-bold text-white hover:bg-primary-red/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 md:text-base"
                   >
                     Close
                   </button>

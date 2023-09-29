@@ -1,4 +1,4 @@
-import { EnvelopeIcon } from "@heroicons/react/24/solid";
+import { InformationCircleIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,11 +13,12 @@ const Footer = () => {
         </p>
         <p className="font-body text-xs leading-relaxed md:text-base">
           If you wish to have any artwork or image removed from the website, or
-          have any complaints regarding our content, email us at
-          onepieceunsw@gmail.com about the details.
+          have any complaints regarding our content, email us at{" "}
+          <span className="inline-block underline">onepieceunsw@gmail.com</span>{" "}
+          about the details.
         </p>
         <h1 className="font-heading text-lg font-light md:text-xl">
-          © UNSW One Piece Society 2023
+          UNSW One Piece Society
         </h1>
       </div>
       <div className="flex w-fit flex-col gap-2 font-body text-xs md:gap-4 md:text-base">
@@ -77,6 +78,14 @@ const Footer = () => {
             Contact us at onepieceunsw@gmail.com
           </a>
         </p>
+        <Link
+          href="/legal"
+          target="_blank"
+          className="flex items-center gap-4 font-body text-xs leading-relaxed md:text-base"
+        >
+          <InformationCircleIcon className="inline-block h-6 w-6 text-white" />
+          Legal Disclaimer
+        </Link>
       </div>
     </div>
   );
