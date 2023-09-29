@@ -19,6 +19,7 @@ const config = {
   },
   images: {
     domains: [
+      "i.imgur.com",
       "media.discordapp.net",
       "media.licdn.com",
       "cdn.discordapp.com",
