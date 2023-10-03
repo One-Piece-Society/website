@@ -35,6 +35,7 @@ const SEO: React.FC<{
         name="keywords"
         content="unsw, UNSW, one piece, Luffy, manga, anime, Sydney"
       />
+      <meta name="theme-color" content="#C64A4A" />
       <meta name="robots" content="index, follow" />
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <meta name="language" content="English" />

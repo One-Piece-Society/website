@@ -18,6 +18,7 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
           className="h-4/6"
         >
           <Image
+            priority
             alt="op"
             src={data.find((e) => e.position === "A")?.image ?? ""}
             width={540}
@@ -35,6 +36,7 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
           className="h-2/6"
         >
           <Image
+            priority
             alt="op"
             src={data.find((e) => e.position === "B")?.image ?? ""}
             width={540}
@@ -54,6 +56,7 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
           className="h-2/6 bg-fixed"
         >
           <Image
+            priority
             alt="op"
             src={data.find((e) => e.position === "C")?.image ?? ""}
             width={540}
@@ -71,6 +74,7 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
           className="h-4/6"
         >
           <Image
+            priority
             alt="op"
             src={data.find((e) => e.position === "D")?.image ?? ""}
             width={540}
@@ -90,6 +94,7 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
           className="h-4/6"
         >
           <Image
+            priority
             alt="op"
             src={data.find((e) => e.position === "E")?.image ?? ""}
             width={540}
@@ -107,6 +112,7 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
           className=" h-2/6"
         >
           <Image
+            priority
             alt="op"
             src={data.find((e) => e.position === "F")?.image ?? ""}
             width={540}
