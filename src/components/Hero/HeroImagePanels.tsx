@@ -20,8 +20,8 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
           <Image
             alt="op"
             src={data.find((e) => e.position === "A")?.image ?? ""}
-            width={1080}
-            height={1130}
+            width={540}
+            height={720}
             className="h-full w-full object-cover"
           />
         </motion.div>
@@ -37,8 +37,8 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
           <Image
             alt="op"
             src={data.find((e) => e.position === "B")?.image ?? ""}
-            width={1080}
-            height={1130}
+            width={540}
+            height={720}
             className="h-full w-full object-cover"
           />
         </motion.div>
@@ -56,8 +56,8 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
           <Image
             alt="op"
             src={data.find((e) => e.position === "C")?.image ?? ""}
-            width={1080}
-            height={1130}
+            width={540}
+            height={720}
             className="h-full w-full object-cover"
           />
         </motion.div>
@@ -73,8 +73,8 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
           <Image
             alt="op"
             src={data.find((e) => e.position === "D")?.image ?? ""}
-            width={1080}
-            height={1130}
+            width={540}
+            height={720}
             className="h-full w-full object-cover"
           />
         </motion.div>
@@ -92,8 +92,8 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
           <Image
             alt="op"
             src={data.find((e) => e.position === "E")?.image ?? ""}
-            width={1080}
-            height={1130}
+            width={540}
+            height={720}
             className="h-full w-full object-cover"
           />
         </motion.div>
@@ -109,8 +109,8 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
           <Image
             alt="op"
             src={data.find((e) => e.position === "F")?.image ?? ""}
-            width={1080}
-            height={1130}
+            width={540}
+            height={720}
             className="h-full w-full object-cover"
           />
         </motion.div>

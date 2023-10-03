@@ -38,8 +38,8 @@ const Footer = () => {
             <Image
               alt="discord-logo"
               src="https://i.imgur.com/AzY9SDM.png"
-              width={250}
-              height={250}
+              width={100}
+              height={100}
               className="h-6 w-6 object-contain"
             />
           </span>
@@ -54,8 +54,8 @@ const Footer = () => {
             <Image
               alt="facebook-logo"
               src="https://i.imgur.com/8dkuxrF.png"
-              width={250}
-              height={250}
+              width={100}
+              height={100}
               className="h-6 w-6 object-contain brightness-0 grayscale invert"
             />
           </span>
@@ -70,8 +70,8 @@ const Footer = () => {
             <Image
               alt="arc-logo"
               src="https://i.imgur.com/Wwgmnir.png"
-              width={250}
-              height={250}
+              width={100}
+              height={100}
               className="h-6 w-6 object-contain"
             />
           </span>

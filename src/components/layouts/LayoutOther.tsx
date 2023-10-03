@@ -15,8 +15,8 @@ const LayoutOther: React.FC<Props> = ({ children }) => {
             <Image
               alt="logo"
               src="https://i.imgur.com/QhkPrT8.png"
-              height={500}
-              width={500}
+              height={250}
+              width={250}
               className="h-10 w-fit object-cover"
             />
           </Link>

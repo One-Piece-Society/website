@@ -18,9 +18,9 @@ const ImageGallery: React.FC<Props> = ({ data }) => {
             <Image
               alt="event"
               src={image}
-              width={500}
-              height={500}
-              className="aspect-square object-cover object-center"
+              width={300}
+              height={250}
+              className="aspect-video w-full object-cover object-center"
             />
           </a>
         </div>
