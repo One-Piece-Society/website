@@ -28,7 +28,7 @@ const TeamTiles: React.FC<Props> = ({ data }) => {
             style={{
               backgroundImage: `url(${
                 (e.image === "" ? defaultTeamImage : e.image) +
-                "?width=500&height=500"
+                "?width=250&height=250"
               })`,
             }}
           >
