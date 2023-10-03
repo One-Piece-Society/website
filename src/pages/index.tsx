@@ -12,32 +12,28 @@ import SEO, { DefaultSEO } from "~/components/layouts/SEO";
 import { type GetServerSidePropsResult, type GetServerSideProps } from "next";
 import { getEvent } from "~/server/api/routers/event";
 import { prisma } from "~/server/db";
-import {
-  getAllPageData,
-  type responseDataType,
-} from "~/server/api/routers/main";
 import EventModal from "~/components/Events/EventModal";
 import { type Event } from "@prisma/client";
+import { api } from "~/util/api";
 
 interface Props {
   formattedTitle: string;
   formattedDescription: string;
   preferredImage: string; // Ensure that preferredImage is always a string
-  data: responseDataType;
 }
 
 const Index: React.FC<Props> = ({
   formattedDescription,
   formattedTitle,
   preferredImage,
-  data,
 }) => {
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState<Event | undefined>();
+  const { isLoading, data } = api.main.getAllPageData.useQuery();
 
   useEffect(() => {
-    if (typeof window !== undefined) {
+    if (typeof window !== undefined && data) {
       const params = new URLSearchParams(window.location.search);
       if (params.get("event")) {
         const eventName = decodeURIComponent(params.get("event") ?? "");
@@ -47,10 +43,12 @@ const Index: React.FC<Props> = ({
         setShowModal(true);
       }
     }
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, [data]);
+    if (isLoading === false) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 3000);
+    }
+  }, [data, isLoading]);
 
   return (
     <>
@@ -99,7 +97,7 @@ const Index: React.FC<Props> = ({
                 </Link>
               </div>
               <div className="hidden min-h-screen w-2/3 flex-col items-start justify-center bg-fixed md:flex">
-                <HeroImagePanels data={data.imagePanel} />
+                <HeroImagePanels data={data!.imagePanel} />
               </div>
             </section>
             <section
@@ -111,14 +109,14 @@ const Index: React.FC<Props> = ({
                 image="https://i.imgur.com/LNv7l31.jpg"
               />
 
-              {data.featureEvent && (
+              {data!.featureEvent && (
                 <div className="h-full max-h-96 w-full">
-                  <EventTile data={data.featureEvent} />
+                  <EventTile data={data!.featureEvent} />
                 </div>
               )}
               <div className="flex h-full w-full flex-row justify-center p-2 md:h-screen md:p-8">
                 <div className="h-full w-full md:w-11/12">
-                  <EventMangaPages data={data.panels} />
+                  <EventMangaPages data={data!.panels} />
                 </div>
               </div>
             </section>
@@ -132,7 +130,7 @@ const Index: React.FC<Props> = ({
               />
               <div className="flex h-full w-full flex-row justify-center p-2 md:p-8">
                 <div className="h-full w-full py-4 md:w-11/12 md:py-16">
-                  <SocialsTiles data={data.socials} />
+                  <SocialsTiles data={data!.socials} />
                 </div>
               </div>
             </section>
@@ -150,17 +148,17 @@ const Index: React.FC<Props> = ({
                     Executives
                   </h1>
                   <TeamTiles
-                    data={data.executives.sort((a, b) =>
+                    data={data!.executives.sort((a, b) =>
                       a.order >= b.order ? 1 : -1,
                     )}
                   />
-                  {data.subcommittee && (
+                  {data!.subcommittee && (
                     <>
                       <h1 className="py-4 font-body text-2xl font-semibold md:py-8 md:text-5xl">
                         Subcommittee
                       </h1>
                       <TeamTiles
-                        data={data.subcommittee.sort((a, b) =>
+                        data={data!.subcommittee.sort((a, b) =>
                           a.order >= b.order ? 1 : -1,
                         )}
                       />
@@ -182,7 +180,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
 }): Promise<GetServerSidePropsResult<Props>> => {
   const event = query.event as string;
   const res = await getEvent({ prisma: prisma, id: event });
-  const data = await getAllPageData({ prisma: prisma });
   // Define your default SEO values
   let formattedTitle = DefaultSEO.title;
   let formattedDescription = DefaultSEO.description;
@@ -201,7 +198,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
       formattedDescription,
       preferredImage,
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      data: JSON.parse(JSON.stringify(data)),
+      //   data: JSON.parse(JSON.stringify(data)),
     },
   };
 };

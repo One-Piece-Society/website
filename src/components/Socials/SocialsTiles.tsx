@@ -32,8 +32,8 @@ const SocialsTiles: React.FC<Props> = ({ data }) => {
           <Image
             alt="banner"
             src={data[0]?.backgroundImage ?? ""}
-            width={1135}
-            height={340}
+            width={720}
+            height={540}
             className="absolute h-full w-full object-cover"
           />
         </motion.a>
@@ -61,8 +61,8 @@ const SocialsTiles: React.FC<Props> = ({ data }) => {
           <Image
             alt="banner"
             src={data[1]?.backgroundImage ?? ""}
-            width={1135}
-            height={340}
+            width={720}
+            height={540}
             className="absolute h-full w-full object-cover"
           />
         </motion.a>
@@ -90,8 +90,8 @@ const SocialsTiles: React.FC<Props> = ({ data }) => {
           <Image
             alt="banner"
             src={data[2]?.backgroundImage ?? ""}
-            width={1135}
-            height={340}
+            width={720}
+            height={540}
             className="absolute h-full w-full object-cover"
           />
         </motion.a>

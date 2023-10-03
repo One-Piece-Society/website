@@ -13,8 +13,8 @@ const SectionBar: React.FC<Props> = ({ title, image }) => {
         <Image
           alt={title + "-banner"}
           src={image}
-          height={500}
-          width={2560}
+          height={250}
+          width={1080}
           className="h-24 w-full object-cover object-center"
         />
       )}

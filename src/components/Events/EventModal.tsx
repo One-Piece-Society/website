@@ -81,8 +81,8 @@ const EventModal: React.FC<Props> = ({ data, isOpen, closeModal }) => {
                   </div>
                   <Image
                     src={data.image ?? ""}
-                    width={1920}
-                    height={1080}
+                    width={720}
+                    height={540}
                     alt="banner"
                     className="max-h-96 w-full object-cover object-center"
                   />
