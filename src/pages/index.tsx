@@ -30,25 +30,54 @@ const Index: React.FC<Props> = ({
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState<Event | undefined>();
-  const { isLoading, data } = api.main.getAllPageData.useQuery();
+  const { isLoading: imageLoading, data: imagePanelsData } =
+    api.main.getImagePanels.useQuery();
+  const { isLoading: featuredEventLoading, data: featuredEventData } =
+    api.main.getFeaturedEvent.useQuery();
+  const { isLoading: eventPanelsLoading, data: eventPanelsData } =
+    api.main.getEventPanels.useQuery();
+  const { isLoading: socialsLoading, data: socialsData } =
+    api.main.getSocials.useQuery();
+  const { isLoading: executivesLoading, data: executivesData } =
+    api.main.getExecutives.useQuery();
+  const { isLoading: subcommitteeLoading, data: subcommitteeData } =
+    api.main.getSubcommittee.useQuery();
 
   useEffect(() => {
-    if (typeof window !== undefined && data) {
+    if (typeof window !== undefined && eventPanelsData) {
       const params = new URLSearchParams(window.location.search);
       if (params.get("event")) {
         const eventName = decodeURIComponent(params.get("event") ?? "");
-        let event = data.events.find((x) => x.id === eventName);
-        if (!event) event = data.featureEvent!;
+        let event = eventPanelsData.find((x) => x.id === eventName)?.event;
+        if (!event && featuredEventData) event = featuredEventData;
         setSelectedEvent(event);
         setShowModal(true);
       }
     }
-    if (isLoading === false) {
+    if (
+      !(
+        imageLoading ||
+        featuredEventLoading ||
+        eventPanelsLoading ||
+        socialsLoading ||
+        executivesLoading ||
+        subcommitteeLoading
+      )
+    ) {
       setTimeout(() => {
         setLoading(false);
       }, 3000);
     }
-  }, [data, isLoading]);
+  }, [
+    eventPanelsData,
+    eventPanelsLoading,
+    executivesLoading,
+    featuredEventData,
+    featuredEventLoading,
+    imageLoading,
+    socialsLoading,
+    subcommitteeLoading,
+  ]);
 
   return (
     <>
@@ -97,7 +126,7 @@ const Index: React.FC<Props> = ({
                 </Link>
               </div>
               <div className="hidden min-h-screen w-2/3 flex-col items-start justify-center bg-fixed md:flex">
-                <HeroImagePanels data={data!.imagePanel} />
+                <HeroImagePanels data={imagePanelsData ?? []} />
               </div>
             </section>
             <section
@@ -109,14 +138,14 @@ const Index: React.FC<Props> = ({
                 image="https://i.imgur.com/LNv7l31.jpg"
               />
 
-              {data!.featureEvent && (
+              {featuredEventData && (
                 <div className="h-full max-h-96 w-full">
-                  <EventTile data={data!.featureEvent} />
+                  <EventTile data={featuredEventData} />
                 </div>
               )}
               <div className="flex h-full w-full flex-row justify-center p-2 md:h-screen md:p-8">
                 <div className="h-full w-full md:w-11/12">
-                  <EventMangaPages data={data!.panels} />
+                  <EventMangaPages data={eventPanelsData ?? []} />
                 </div>
               </div>
             </section>
@@ -130,7 +159,7 @@ const Index: React.FC<Props> = ({
               />
               <div className="flex h-full w-full flex-row justify-center p-2 md:p-8">
                 <div className="h-full w-full py-4 md:w-11/12 md:py-16">
-                  <SocialsTiles data={data!.socials} />
+                  <SocialsTiles data={socialsData ?? []} />
                 </div>
               </div>
             </section>
@@ -148,17 +177,17 @@ const Index: React.FC<Props> = ({
                     Executives
                   </h1>
                   <TeamTiles
-                    data={data!.executives.sort((a, b) =>
+                    data={(executivesData ?? []).sort((a, b) =>
                       a.order >= b.order ? 1 : -1,
                     )}
                   />
-                  {data!.subcommittee && (
+                  {subcommitteeData && (
                     <>
                       <h1 className="py-4 font-body text-2xl font-semibold md:py-8 md:text-5xl">
                         Subcommittee
                       </h1>
                       <TeamTiles
-                        data={data!.subcommittee.sort((a, b) =>
+                        data={subcommitteeData.sort((a, b) =>
                           a.order >= b.order ? 1 : -1,
                         )}
                       />
