@@ -2,9 +2,6 @@ import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 
 // use this for client side rendering
 export const mainRouter = createTRPCRouter({
-  getImagePanels: publicProcedure.query(
-    async ({ ctx }) => await ctx.prisma.imagePanel.findMany(),
-  ),
   getEvents: publicProcedure.query(
     async ({ ctx }) =>
       await ctx.prisma.event.findMany({
@@ -19,9 +16,6 @@ export const mainRouter = createTRPCRouter({
           Panel: true,
         },
       }),
-  ),
-  getSocials: publicProcedure.query(
-    async ({ ctx }) => await ctx.prisma.social.findMany(),
   ),
   getEventPanels: publicProcedure.query(
     async ({ ctx }) =>

@@ -34,8 +34,6 @@ const Index: React.FC<Props> = ({
     api.main.getFeaturedEvent.useQuery();
   const { isLoading: eventPanelsLoading, data: eventPanelsData } =
     api.main.getEventPanels.useQuery();
-  const { isLoading: socialsLoading, data: socialsData } =
-    api.main.getSocials.useQuery();
   const { isLoading: executivesLoading, data: executivesData } =
     api.main.getExecutives.useQuery();
   const { isLoading: subcommitteeLoading, data: subcommitteeData } =
@@ -56,7 +54,6 @@ const Index: React.FC<Props> = ({
       !(
         featuredEventLoading ||
         eventPanelsLoading ||
-        socialsLoading ||
         executivesLoading ||
         subcommitteeLoading
       )
@@ -71,7 +68,6 @@ const Index: React.FC<Props> = ({
     executivesLoading,
     featuredEventData,
     featuredEventLoading,
-    socialsLoading,
     subcommitteeLoading,
   ]);
 
@@ -155,7 +151,7 @@ const Index: React.FC<Props> = ({
               />
               <div className="flex h-full w-full flex-row justify-center p-2 md:p-8">
                 <div className="h-full w-full py-4 md:w-11/12 md:py-16">
-                  <SocialsTiles data={socialsData ?? []} />
+                  <SocialsTiles />
                 </div>
               </div>
             </section>
