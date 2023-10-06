@@ -30,14 +30,10 @@ const Index: React.FC<Props> = ({
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState<Event | undefined>();
-  const { isLoading: imageLoading, data: imagePanelsData } =
-    api.main.getImagePanels.useQuery();
   const { isLoading: featuredEventLoading, data: featuredEventData } =
     api.main.getFeaturedEvent.useQuery();
   const { isLoading: eventPanelsLoading, data: eventPanelsData } =
     api.main.getEventPanels.useQuery();
-  const { isLoading: socialsLoading, data: socialsData } =
-    api.main.getSocials.useQuery();
   const { isLoading: executivesLoading, data: executivesData } =
     api.main.getExecutives.useQuery();
   const { isLoading: subcommitteeLoading, data: subcommitteeData } =
@@ -56,10 +52,8 @@ const Index: React.FC<Props> = ({
     }
     if (
       !(
-        imageLoading ||
         featuredEventLoading ||
         eventPanelsLoading ||
-        socialsLoading ||
         executivesLoading ||
         subcommitteeLoading
       )
@@ -74,8 +68,6 @@ const Index: React.FC<Props> = ({
     executivesLoading,
     featuredEventData,
     featuredEventLoading,
-    imageLoading,
-    socialsLoading,
     subcommitteeLoading,
   ]);
 
@@ -126,7 +118,7 @@ const Index: React.FC<Props> = ({
                 </Link>
               </div>
               <div className="hidden min-h-screen w-2/3 flex-col items-start justify-center bg-fixed md:flex">
-                <HeroImagePanels data={imagePanelsData ?? []} />
+                <HeroImagePanels />
               </div>
             </section>
             <section
@@ -135,7 +127,7 @@ const Index: React.FC<Props> = ({
             >
               <SectionBar
                 title="Events"
-                image="https://i.imgur.com/LNv7l31.jpg"
+                image="/section/section_panel_events.jpeg"
               />
 
               {featuredEventData && (
@@ -155,11 +147,11 @@ const Index: React.FC<Props> = ({
             >
               <SectionBar
                 title="Socials"
-                image="https://i.imgur.com/4YypPSL.png"
+                image="/section/section_panel_socials.png"
               />
               <div className="flex h-full w-full flex-row justify-center p-2 md:p-8">
                 <div className="h-full w-full py-4 md:w-11/12 md:py-16">
-                  <SocialsTiles data={socialsData ?? []} />
+                  <SocialsTiles />
                 </div>
               </div>
             </section>
@@ -169,7 +161,7 @@ const Index: React.FC<Props> = ({
             >
               <SectionBar
                 title="Team"
-                image="https://i.imgur.com/BPRrehz.png"
+                image="/section/section_panel_team.png"
               />
               <div className="flex h-full w-full flex-row justify-center p-2 md:p-8">
                 <div className="h-full w-full py-4 md:container md:py-16">

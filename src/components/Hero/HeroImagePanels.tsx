@@ -1,13 +1,8 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { type ImagePanel } from "@prisma/client";
 import { springTransition } from "~/util/animation";
 
-interface Props {
-  data: ImagePanel[];
-}
-
-const HeroImagePanels: React.FC<Props> = ({ data }) => {
+const HeroImagePanels: React.FC = () => {
   return (
     <div className="flex h-full w-full flex-row drop-shadow-lg">
       <div className="panel flex h-full w-full flex-col space-y-8">
@@ -20,7 +15,7 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
           <Image
             priority
             alt="op"
-            src={data.find((e) => e.position === "A")?.image ?? ""}
+            src="/hero/hero_panel_a.png"
             width={540}
             height={720}
             className="h-full w-full object-cover"
@@ -38,7 +33,7 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
           <Image
             priority
             alt="op"
-            src={data.find((e) => e.position === "B")?.image ?? ""}
+            src="/hero/hero_panel_b.png"
             width={540}
             height={720}
             className="h-full w-full object-cover"
@@ -58,7 +53,7 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
           <Image
             priority
             alt="op"
-            src={data.find((e) => e.position === "C")?.image ?? ""}
+            src="/hero/hero_panel_c.png"
             width={540}
             height={720}
             className="h-full w-full object-cover"
@@ -76,7 +71,7 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
           <Image
             priority
             alt="op"
-            src={data.find((e) => e.position === "D")?.image ?? ""}
+            src="/hero/hero_panel_d.jpg"
             width={540}
             height={720}
             className="h-full w-full object-cover"
@@ -96,7 +91,7 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
           <Image
             priority
             alt="op"
-            src={data.find((e) => e.position === "E")?.image ?? ""}
+            src="/hero/hero_panel_e.png"
             width={540}
             height={720}
             className="h-full w-full object-cover"
@@ -114,7 +109,7 @@ const HeroImagePanels: React.FC<Props> = ({ data }) => {
           <Image
             priority
             alt="op"
-            src={data.find((e) => e.position === "F")?.image ?? ""}
+            src="/hero/hero_panel_f.jpeg"
             width={540}
             height={720}
             className="h-full w-full object-cover"
