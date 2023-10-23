@@ -20,16 +20,17 @@ interface Props {
   formattedTitle: string;
   formattedDescription: string;
   preferredImage: string; // Ensure that preferredImage is always a string
+  selectedEvent?: Event;
 }
 
 const Index: React.FC<Props> = ({
   formattedDescription,
   formattedTitle,
   preferredImage,
+  selectedEvent,
 }) => {
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
-  const [selectedEvent, setSelectedEvent] = useState<Event | undefined>();
   const { isLoading: featuredEventLoading, data: featuredEventData } =
     api.main.getFeaturedEvent.useQuery();
   const { isLoading: eventPanelsLoading, data: eventPanelsData } =
@@ -40,16 +41,8 @@ const Index: React.FC<Props> = ({
     api.main.getSubcommittee.useQuery();
 
   useEffect(() => {
-    if (typeof window !== undefined && eventPanelsData) {
-      const params = new URLSearchParams(window.location.search);
-      if (params.get("event")) {
-        const eventName = decodeURIComponent(params.get("event") ?? "");
-        let event = eventPanelsData.find((x) => x.id === eventName)?.event;
-        if (!event && featuredEventData) event = featuredEventData;
-        setSelectedEvent(event);
-        setShowModal(true);
-      }
-    }
+    console.log("event: ", selectedEvent);
+    if (typeof window !== undefined && selectedEvent) setShowModal(true);
     if (
       !(
         featuredEventLoading ||
@@ -60,17 +53,10 @@ const Index: React.FC<Props> = ({
     ) {
       setTimeout(() => {
         setLoading(false);
-      }, 3000);
+      }, 500);
     }
-  }, [
-    eventPanelsData,
-    eventPanelsLoading,
-    executivesLoading,
-    featuredEventData,
-    featuredEventLoading,
-    subcommitteeLoading,
-  ]);
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <>
       <SEO
@@ -82,7 +68,7 @@ const Index: React.FC<Props> = ({
         <LoadingPage />
       ) : (
         <>
-          {showModal && selectedEvent && (
+          {selectedEvent && (
             <EventModal
               closeModal={() => setShowModal(false)}
               isOpen={showModal}
@@ -195,31 +181,51 @@ const Index: React.FC<Props> = ({
   );
 };
 
-// mainly doing this just to get the relevant information for SEO
+// get the relevant information for SEO and event modal
+
+// TODO: refactor this to be more elegant
 export const getServerSideProps: GetServerSideProps<Props> = async ({
   query,
 }): Promise<GetServerSidePropsResult<Props>> => {
   const event = query.event as string;
-  const res = await getEvent({ prisma: prisma, id: event });
+
   // Define your default SEO values
   let formattedTitle = DefaultSEO.title;
   let formattedDescription = DefaultSEO.description;
   let preferredImage = DefaultSEO.image ?? "";
 
-  // Check if the "event" query parameter is present
-  if (event && typeof event === "string" && res) {
-    formattedTitle = res.title + " | OPsoc";
-    formattedDescription = res.description ?? DefaultSEO.description;
-    preferredImage = res.image ?? DefaultSEO.image ?? "";
-  }
+  await getEvent({ prisma: prisma, id: event })
+    .then((res) => {
+      if (typeof event === "string" && res) {
+        formattedTitle = res.title + " | OPsoc";
+        formattedDescription = res.description ?? DefaultSEO.description;
+        preferredImage = res.image ?? DefaultSEO.image ?? "";
+      }
+      return event
+        ? {
+            props: {
+              formattedTitle,
+              formattedDescription,
+              preferredImage,
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+              selectedEvent: JSON.parse(JSON.stringify(res)),
+            },
+          }
+        : {
+            props: {
+              formattedTitle,
+              formattedDescription,
+              preferredImage,
+            },
+          };
+    })
+    .catch(() => console.log("Failed to retrieve event"));
 
   return {
     props: {
       formattedTitle,
       formattedDescription,
       preferredImage,
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      //   data: JSON.parse(JSON.stringify(data)),
     },
   };
 };
