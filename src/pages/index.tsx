@@ -182,8 +182,6 @@ const Index: React.FC<Props> = ({
 };
 
 // get the relevant information for SEO and event modal
-
-// TODO: refactor this to be more elegant
 export const getServerSideProps: GetServerSideProps<Props> = async ({
   query,
 }): Promise<GetServerSidePropsResult<Props>> => {
@@ -194,32 +192,24 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
   let formattedDescription = DefaultSEO.description;
   let preferredImage = DefaultSEO.image ?? "";
 
-  await getEvent({ prisma: prisma, id: event })
-    .then((res) => {
-      if (typeof event === "string" && res) {
-        formattedTitle = res.title + " | OPsoc";
-        formattedDescription = res.description ?? DefaultSEO.description;
-        preferredImage = res.image ?? DefaultSEO.image ?? "";
-      }
-      return event
-        ? {
-            props: {
-              formattedTitle,
-              formattedDescription,
-              preferredImage,
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-              selectedEvent: JSON.parse(JSON.stringify(res)),
-            },
-          }
-        : {
-            props: {
-              formattedTitle,
-              formattedDescription,
-              preferredImage,
-            },
-          };
-    })
-    .catch(() => console.log("Failed to retrieve event"));
+  const res = await getEvent({ prisma: prisma, id: event }).catch(() =>
+    console.error("encountered error while fetching event"),
+  );
+
+  if (event && typeof event === "string" && res) {
+    formattedTitle = res.title + " | OPsoc";
+    formattedDescription = res.description ?? DefaultSEO.description;
+    preferredImage = res.image ?? DefaultSEO.image ?? "";
+    return {
+      props: {
+        formattedTitle,
+        formattedDescription,
+        preferredImage,
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        selectedEvent: JSON.parse(JSON.stringify(res)),
+      },
+    };
+  }
 
   return {
     props: {
