@@ -123,7 +123,13 @@ const EventModal: React.FC<Props> = ({ data, isOpen, closeModal }) => {
                     {data.online ? (
                       <>
                         <GlobeAltIcon className="inline-block h-5 w-5 text-black" />
-                        Discord
+                        <a
+                          className="text-blue-500 underline decoration-blue-500 underline-offset-2"
+                          href="https://discord.gg/hZymJuE6aV"
+                          target="_blank"
+                        >
+                          Discord
+                        </a>
                       </>
                     ) : (
                       <>
