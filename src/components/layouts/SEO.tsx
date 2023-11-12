@@ -40,6 +40,10 @@ const SEO: React.FC<{
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <meta name="language" content="English" />
       <link rel="icon" href={favicon} />
+      <meta
+        name="google-site-verification"
+        content="0i_1XF-TVwTZ2nkTZkSuLneDbrF4truGxZnkEzX3rQU"
+      />
 
       <meta property="og:type" content="website" />
       <meta property="og:url" content={DefaultSEO.url} />
