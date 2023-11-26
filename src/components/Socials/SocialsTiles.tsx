@@ -12,17 +12,27 @@ const SocialsTiles: React.FC = () => {
           href="https://discord.gg/USxv58e7PQ"
           className="panel1 relative flex w-full flex-row items-center "
         >
-          <div className="static z-40 flex w-full flex-row items-center justify-start gap-4 bg-gradient-to-r from-blue-400  via-blue-400/80 to-blue-400/40 p-8 drop-shadow-lg md:gap-8">
-            <Image
+          {/* <div className="static z-40 flex w-full flex-row items-center justify-start gap-4 bg-gradient-to-r from-blue-400  via-blue-400/80 to-blue-400/40 p-8 drop-shadow-lg md:gap-8">
+            <h2 className="text-left font-heading text-3xl md:text-6xl">
+              Discord
+            </h2>
+          </div> */}
+          <div className="static z-40 flex w-full flex-row items-center justify-start gap-4 bg-gradient-to-r from-blue-400  via-blue-400/80 to-blue-400/40 p-8 drop-shadow-lg md:gap-8 ">
+            {/* <Image
               alt="discord-logo"
               src="/socials/discord_logo.png"
               width={250}
               height={250}
               className="h-8 w-fit object-scale-down md:h-24"
-            />
-            <h2 className="text-left font-heading text-3xl md:text-6xl">
-              Discord
-            </h2>
+            /> */}
+            <iframe
+              src="https://discord.com/widget?id=949666903083868180&theme=dark"
+              width="720"
+              height="540"
+              allowtransparency="true"
+              frameborder="0"
+              sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+            ></iframe>
           </div>
           <Image
             alt="banner"
