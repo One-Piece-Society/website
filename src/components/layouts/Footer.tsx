@@ -69,7 +69,6 @@ const Footer = () => {
           <span className="inline-block">
             <Image
               alt="arc-logo"
-              // src="https://i.imgur.com/Wwgmnir.png"
               src="/socials/arc_logo.webp"
               width={100}
               height={100}
