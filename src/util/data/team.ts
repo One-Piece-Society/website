@@ -82,6 +82,15 @@ export const Executives: Team[] = [
     order: 7,
     year: 2023,
   },
+  {
+    id: "clmy5eyx20008morlwc3tedfx",
+    type: "EXECUTIVE",
+    image: "/team/vivi.webp",
+    name: "Hari",
+    position: "Technical Director",
+    order: 7,
+    year: 2024,
+  },
 ];
 
 export const Subcommittee: Team[] = [
