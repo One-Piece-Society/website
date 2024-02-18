@@ -13,7 +13,7 @@ export const baseUrl: string = environmentUrl.startsWith("http")
 
 export const DefaultSEO: SEOProps = {
   title: "UNSW One Piece Society's Website",
-  image: "https://i.imgur.com/iGg3mVL.png",
+  image: "/opsoc-banner-art.webp",
   description:
     "Dive into the world of One Piece with the UNSW Society! Join us for exciting discussions, anime screenings, and vibrant events that capture the essence of Oda's masterpiece. Whether you're a devoted fan or a curious newcomer, become part of our Nakama and experience the thrill of One Piece in a community as dynamic as the Grand Line itself!",
   url: baseUrl,

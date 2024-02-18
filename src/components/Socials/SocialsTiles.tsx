@@ -15,7 +15,7 @@ const SocialsTiles: React.FC = () => {
           <div className="static z-40 flex w-full flex-row items-center justify-start gap-4 bg-gradient-to-r from-blue-400  via-blue-400/80 to-blue-400/40 p-8 drop-shadow-lg md:gap-8">
             <Image
               alt="discord-logo"
-              src="/socials/discord_logo.png"
+              src="/socials/discord_logo.webp"
               width={250}
               height={250}
               className="h-8 w-fit object-scale-down md:h-24"
@@ -26,7 +26,7 @@ const SocialsTiles: React.FC = () => {
           </div>
           <Image
             alt="banner"
-            src="/socials/discord_banner.png"
+            src="/socials/discord_banner.webp"
             width={720}
             height={540}
             className="absolute h-full w-full object-cover"
@@ -47,7 +47,7 @@ const SocialsTiles: React.FC = () => {
             </h2>
             <Image
               alt="facebook-logo"
-              src="/socials/facebook_logo.png"
+              src="/socials/facebook_logo.webp"
               width={250}
               height={250}
               className="h-8 w-fit object-scale-down brightness-0 grayscale invert md:h-24"
@@ -55,7 +55,7 @@ const SocialsTiles: React.FC = () => {
           </div>
           <Image
             alt="banner"
-            src="/socials/facebook_banner.png"
+            src="/socials/facebook_banner.webp"
             width={720}
             height={540}
             className="absolute h-full w-full object-cover"
@@ -73,7 +73,7 @@ const SocialsTiles: React.FC = () => {
           <div className="static z-40 flex w-full flex-row items-center justify-start gap-4 bg-gradient-to-r from-green-500 via-green-500/80 to-green-500/40 p-8 drop-shadow-lg md:gap-8">
             <Image
               alt="spArc-logo"
-              src="/socials/arc_logo.png"
+              src="/socials/arc_logo.webp"
               width={250}
               height={250}
               className="h-8 w-fit object-scale-down md:h-24"
@@ -84,7 +84,7 @@ const SocialsTiles: React.FC = () => {
           </div>
           <Image
             alt="banner"
-            src="/socials/arc_banner.png"
+            src="/socials/arc_banner.webp"
             width={720}
             height={540}
             className="absolute h-full w-full object-cover"

@@ -15,6 +15,7 @@ import { prisma } from "~/server/db";
 import EventModal from "~/components/Events/EventModal";
 import { type Event } from "@prisma/client";
 import { api } from "~/util/api";
+import { Tab } from "@headlessui/react";
 
 interface Props {
   formattedTitle: string;
@@ -57,6 +58,7 @@ const Index: React.FC<Props> = ({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
     <>
       <SEO
@@ -113,7 +115,7 @@ const Index: React.FC<Props> = ({
             >
               <SectionBar
                 title="Events"
-                image="/section/section_panel_events.jpeg"
+                image="/section/section_panel_events.webp"
               />
 
               {featuredEventData && (
@@ -133,7 +135,7 @@ const Index: React.FC<Props> = ({
             >
               <SectionBar
                 title="Socials"
-                image="/section/section_panel_socials.png"
+                image="/section/section_panel_socials.webp"
               />
               <div className="flex h-full w-full flex-row justify-center p-2 md:p-8">
                 <div className="h-full w-full py-4 md:w-11/12 md:py-16">
@@ -147,30 +149,49 @@ const Index: React.FC<Props> = ({
             >
               <SectionBar
                 title="Team"
-                image="/section/section_panel_team.png"
+                image="/section/section_panel_team.webp"
               />
               <div className="flex h-full w-full flex-row justify-center p-2 md:p-8">
                 <div className="h-full w-full py-4 md:container md:py-16">
-                  <h1 className="pb-4 font-body text-2xl font-semibold md:pb-8 md:text-5xl">
-                    Executives
-                  </h1>
-                  <TeamTiles
-                    data={(executivesData ?? []).sort((a, b) =>
-                      a.order >= b.order ? 1 : -1,
-                    )}
-                  />
-                  {subcommitteeData && (
-                    <>
-                      <h1 className="py-4 font-body text-2xl font-semibold md:py-8 md:text-5xl">
-                        Subcommittee
-                      </h1>
-                      <TeamTiles
-                        data={subcommitteeData.sort((a, b) =>
-                          a.order >= b.order ? 1 : -1,
+                  <Tab.Group>
+                    <Tab.List>
+                      {executivesData
+                        ?.filter(
+                          (value, index, self) => self.indexOf(value) === index,
+                        )
+                        .map((e, i) => (
+                          <Tab key={i}>
+                            <h1 className="pb-4 font-body text-2xl font-semibold md:pb-8 md:text-5xl">
+                              2024
+                            </h1>
+                          </Tab>
+                        ))}
+                    </Tab.List>
+                    <Tab.Panels>
+                      <Tab.Panel>
+                        <h1 className="pb-4 font-body text-2xl font-semibold md:pb-8 md:text-5xl">
+                          Executives
+                        </h1>
+                        <TeamTiles
+                          data={(executivesData ?? []).sort((a, b) =>
+                            a.order >= b.order ? 1 : -1,
+                          )}
+                        />
+                        {subcommitteeData && (
+                          <>
+                            <h1 className="py-4 font-body text-2xl font-semibold md:py-8 md:text-5xl">
+                              Subcommittee
+                            </h1>
+                            <TeamTiles
+                              data={subcommitteeData.sort((a, b) =>
+                                a.order >= b.order ? 1 : -1,
+                              )}
+                            />
+                          </>
                         )}
-                      />
-                    </>
-                  )}
+                      </Tab.Panel>
+                    </Tab.Panels>
+                  </Tab.Group>
                 </div>
               </div>
             </section>

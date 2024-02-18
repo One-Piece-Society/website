@@ -15,7 +15,7 @@ const HeroImagePanels: React.FC = () => {
           <Image
             priority
             alt="op"
-            src="/hero/hero_panel_a.png"
+            src="/hero/hero_panel_a.webp"
             width={540}
             height={720}
             className="h-full w-full object-cover"
@@ -33,7 +33,7 @@ const HeroImagePanels: React.FC = () => {
           <Image
             priority
             alt="op"
-            src="/hero/hero_panel_b.png"
+            src="/hero/hero_panel_b.webp"
             width={540}
             height={720}
             className="h-full w-full object-cover"
@@ -53,7 +53,7 @@ const HeroImagePanels: React.FC = () => {
           <Image
             priority
             alt="op"
-            src="/hero/hero_panel_c.png"
+            src="/hero/hero_panel_c.webp"
             width={540}
             height={720}
             className="h-full w-full object-cover"
@@ -71,7 +71,7 @@ const HeroImagePanels: React.FC = () => {
           <Image
             priority
             alt="op"
-            src="/hero/hero_panel_d.jpg"
+            src="/hero/hero_panel_d.webp"
             width={540}
             height={720}
             className="h-full w-full object-cover"
@@ -91,7 +91,7 @@ const HeroImagePanels: React.FC = () => {
           <Image
             priority
             alt="op"
-            src="/hero/hero_panel_e.png"
+            src="/hero/hero_panel_e.webp"
             width={540}
             height={720}
             className="h-full w-full object-cover"
@@ -109,7 +109,7 @@ const HeroImagePanels: React.FC = () => {
           <Image
             priority
             alt="op"
-            src="/hero/hero_panel_f.jpeg"
+            src="/hero/hero_panel_f.webp"
             width={540}
             height={720}
             className="h-full w-full object-cover"
