@@ -16,6 +16,8 @@ import EventModal from "~/components/Events/EventModal";
 import { type Event } from "@prisma/client";
 import { api } from "~/util/api";
 import { Tab } from "@headlessui/react";
+import { Events } from "~/util/data/events";
+import { Executives, Subcommittee } from "~/util/data/team";
 
 interface Props {
   formattedTitle: string;
@@ -34,24 +36,11 @@ const Index: React.FC<Props> = ({
   const [showModal, setShowModal] = useState(false);
   const { isLoading: featuredEventLoading, data: featuredEventData } =
     api.main.getFeaturedEvent.useQuery();
-  const { isLoading: eventPanelsLoading, data: eventPanelsData } =
-    api.main.getEventPanels.useQuery();
-  const { isLoading: executivesLoading, data: executivesData } =
-    api.main.getExecutives.useQuery();
-  const { isLoading: subcommitteeLoading, data: subcommitteeData } =
-    api.main.getSubcommittee.useQuery();
 
   useEffect(() => {
     console.log("event: ", selectedEvent);
     if (typeof window !== undefined && selectedEvent) setShowModal(true);
-    if (
-      !(
-        featuredEventLoading ||
-        eventPanelsLoading ||
-        executivesLoading ||
-        subcommitteeLoading
-      )
-    ) {
+    if (!featuredEventLoading) {
       setTimeout(() => {
         setLoading(false);
       }, 500);
@@ -125,7 +114,7 @@ const Index: React.FC<Props> = ({
               )}
               <div className="flex h-full w-full flex-row justify-center p-2 md:h-screen md:p-8">
                 <div className="h-full w-full md:w-11/12">
-                  <EventMangaPages data={eventPanelsData ?? []} />
+                  <EventMangaPages data={Events} />
                 </div>
               </div>
             </section>
@@ -155,17 +144,15 @@ const Index: React.FC<Props> = ({
                 <div className="h-full w-full py-4 md:container md:py-16">
                   <Tab.Group>
                     <Tab.List>
-                      {executivesData
-                        ?.filter(
-                          (value, index, self) => self.indexOf(value) === index,
-                        )
-                        .map((e, i) => (
-                          <Tab key={i}>
-                            <h1 className="pb-4 font-body text-2xl font-semibold md:pb-8 md:text-5xl">
-                              2024
-                            </h1>
-                          </Tab>
-                        ))}
+                      {Executives?.filter(
+                        (value, index, self) => self.indexOf(value) === index,
+                      ).map((e, i) => (
+                        <Tab key={i}>
+                          <h1 className="pb-4 font-body text-2xl font-semibold md:pb-8 md:text-5xl">
+                            2024
+                          </h1>
+                        </Tab>
+                      ))}
                     </Tab.List>
                     <Tab.Panels>
                       <Tab.Panel>
@@ -173,17 +160,17 @@ const Index: React.FC<Props> = ({
                           Executives
                         </h1>
                         <TeamTiles
-                          data={(executivesData ?? []).sort((a, b) =>
+                          data={Executives.sort((a, b) =>
                             a.order >= b.order ? 1 : -1,
                           )}
                         />
-                        {subcommitteeData && (
+                        {Subcommittee && (
                           <>
                             <h1 className="py-4 font-body text-2xl font-semibold md:py-8 md:text-5xl">
                               Subcommittee
                             </h1>
                             <TeamTiles
-                              data={subcommitteeData.sort((a, b) =>
+                              data={Subcommittee.sort((a, b) =>
                                 a.order >= b.order ? 1 : -1,
                               )}
                             />
