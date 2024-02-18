@@ -26,7 +26,7 @@ export const Events: EventPanel[] = [
   {
     id: "clmpxgj8b0007mot0e0fkzn30",
     position: "A",
-    image: "https://i.imgur.com/Q3r9ENA.png",
+    image: "/event-panels/trivia-night-2.webp",
     eventId: "clmpwwn6r0000mot0jgbe4uyl",
     event: {
       id: "clmpwwn6r0000mot0jgbe4uyl",
@@ -53,7 +53,7 @@ export const Events: EventPanel[] = [
   {
     id: "clmpxgj8a0006mot0lamtcihl",
     position: "B",
-    image: "https://i.imgur.com/d3hbvkm.png",
+    image: "/event-panels/trivia-night-1.webp",
     eventId: "clmotle620000monog4b9wvwb",
     event: {
       id: "clmotle620000monog4b9wvwb",
@@ -84,7 +84,7 @@ export const Events: EventPanel[] = [
   {
     id: "clmpxfhxm0004mot0kuhfxown",
     position: "D",
-    image: "https://i.imgur.com/B9hGo1T.jpg",
+    image: "/event-panels/g5-watch-along.webp",
     eventId: "clmyp2dhl0003moh4pveo4tez",
     event: {
       id: "clmyp2dhl0003moh4pveo4tez",
@@ -110,7 +110,7 @@ export const Events: EventPanel[] = [
   {
     id: "clmpxgj8a0005mot0349t78bc",
     position: "E",
-    image: "https://i.imgur.com/TTI3UEa.png",
+    image: "/event-panels/fr-watch-party2.webp",
     eventId: "clmyobx9i0001moh4fiqml17v",
     event: {
       id: "clmyobx9i0001moh4fiqml17v",
@@ -136,7 +136,7 @@ export const Events: EventPanel[] = [
   {
     id: "clmpx3psy0002mot0grdnxl5l",
     position: "F",
-    image: "https://i.imgur.com/1TXcNCq.png",
+    image: "/event-panels/bbq.webp",
     eventId: "clmymcstq0000mohb9an1l2zu",
     event: {
       id: "clmymcstq0000mohb9an1l2zu",
@@ -160,7 +160,7 @@ export const Events: EventPanel[] = [
   {
     id: "clmpx3psy0001mot09e7oo63y",
     position: "G",
-    image: "https://i.imgur.com/b5bzsdI.png",
+    image: "/event-panels/fr-watch-party.webp",
     eventId: "clmyobx9i0001moh4fiqml17v",
     event: {
       id: "clmyobx9i0001moh4fiqml17v",
@@ -186,7 +186,7 @@ export const Events: EventPanel[] = [
   {
     id: "clmpx3psz0003mot0o9a187lx",
     position: "C",
-    image: "https://i.imgur.com/ZABRk4k.jpg",
+    image: "/event-panels/beach-day.webp",
     eventId: "clnpje05p0000movzgz1ficnd",
     event: {
       id: "clnpje05p0000movzgz1ficnd",
