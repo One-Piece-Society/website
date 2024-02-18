@@ -1,8 +1,7 @@
 import { useState } from "react";
 import InfoBlock from "./InfoBlock";
-import { type EventPanel } from "~/util/types";
+import { type Event, type EventPanel } from "~/util/types";
 import EventModal from "./EventModal";
-import { type Event } from "@prisma/client";
 
 interface Props {
   data: EventPanel[];

@@ -4,7 +4,7 @@ export const Executives: Team[] = [
   {
     id: "clmy5eyx10000morlxci2q0xo",
     type: "EXECUTIVE",
-    image: "https://i.imgur.com/vrJyVz8.jpg",
+    image: "/team/luffy.webp",
     name: "Tahsin",
     position: "President",
     order: 0,
@@ -13,7 +13,7 @@ export const Executives: Team[] = [
   {
     id: "clmy5eyx20001morlyzhno5uo",
     type: "EXECUTIVE",
-    image: "https://i.imgur.com/sVf6PMq.jpg",
+    image: "/team/zoro.webp",
     name: "Prathamesh",
     position: "Vice President & Marketing Director",
     order: 1,
@@ -22,7 +22,7 @@ export const Executives: Team[] = [
   {
     id: "clmy5eyx20002morl41ro87fo",
     type: "EXECUTIVE",
-    image: "https://i.imgur.com/5MuiQAY.jpg",
+    image: "/team/brooks.webp",
     name: "Jeremy",
     position: "Secretary",
     order: 2,
@@ -31,7 +31,7 @@ export const Executives: Team[] = [
   {
     id: "clmy5eyx20003morl1bxx6pcc",
     type: "EXECUTIVE",
-    image: "https://i.imgur.com/97nGOCW.jpg",
+    image: "/team/sanji.webp",
     name: "Bob He",
     position: "Treasurer",
     order: 3,
@@ -40,7 +40,7 @@ export const Executives: Team[] = [
   {
     id: "clmy5eyx20004morlxe0q5emo",
     type: "EXECUTIVE",
-    image: "https://i.imgur.com/dVlLALe.jpg",
+    image: "/team/shanks.webp",
     name: "Sank",
     position: "Events Director",
     order: 6,
@@ -49,7 +49,7 @@ export const Executives: Team[] = [
   {
     id: "clmy5eyx20005morl17tp76qu",
     type: "EXECUTIVE",
-    image: "https://i.imgur.com/zENpoYo.jpg",
+    image: "/team/orange.webp",
     name: "Liem",
     position: "Events Director",
     order: 6,
@@ -58,7 +58,7 @@ export const Executives: Team[] = [
   {
     id: "clmy5eyx20006morlbhkzkxp4",
     type: "EXECUTIVE",
-    image: "https://i.imgur.com/wlEYEDr.jpg",
+    image: "/team/ace.webp",
     name: "Aryan ",
     position: "Arc Delegate",
     order: 4,
@@ -67,7 +67,7 @@ export const Executives: Team[] = [
   {
     id: "clmy5eyx20007morl1k9tz790",
     type: "EXECUTIVE",
-    image: "https://i.imgur.com/etWkN1N.jpg",
+    image: "/team/nami.webp",
     name: "Alex",
     position: "Grievance Officer",
     order: 5,
@@ -76,7 +76,7 @@ export const Executives: Team[] = [
   {
     id: "clmy5eyx20008morlwc3tedfx",
     type: "EXECUTIVE",
-    image: "https://i.imgur.com/e4vqH6p.jpg",
+    image: "/team/vivi.webp",
     name: "Hari",
     position: "Technical Director",
     order: 7,
@@ -88,7 +88,7 @@ export const Subcommittee: Team[] = [
   {
     id: "clmy5haik0009morl7bgc777h",
     type: "SUBCOMMITTEE",
-    image: "https://i.imgur.com/1nPWiOV.jpg",
+    image: "/team/chopper.webp",
     name: "Joel",
     position: "Events Subcommittee",
     order: 2,
@@ -97,7 +97,7 @@ export const Subcommittee: Team[] = [
   {
     id: "clmy5haik000amorlw8knqgy4",
     type: "SUBCOMMITTEE",
-    image: "https://i.imgur.com/4FZaBi0.png",
+    image: "/team/robin.webp",
     name: "Jeet",
     position: "Marketing Subcommittee",
     order: 0,
@@ -106,7 +106,7 @@ export const Subcommittee: Team[] = [
   {
     id: "clmy5haik000bmorl8hq38pvl",
     type: "SUBCOMMITTEE",
-    image: "https://i.imgur.com/cCqHx6h.jpg",
+    image: "/team/yellow.webp",
     name: "Colby",
     position: "Marketing & Technical Subcommittee",
     order: 1,
@@ -115,7 +115,7 @@ export const Subcommittee: Team[] = [
   {
     id: "clmy5hail000cmorlab1rtsd8",
     type: "SUBCOMMITTEE",
-    image: "https://i.imgur.com/64o8Lxh.jpg",
+    image: "/team/wapol.webp",
     name: "Vishnu",
     position: "Technical Subcommittee",
     order: 3,
@@ -124,7 +124,7 @@ export const Subcommittee: Team[] = [
   {
     id: "clmy5hail000dmorlfkco25z9",
     type: "SUBCOMMITTEE",
-    image: "https://i.imgur.com/Yx88wgt.png",
+    image: "/team/smoker.webp",
     name: "Jackson",
     position: "Technical Subcommittee",
     order: 4,

@@ -9,15 +9,17 @@ import Layout from "~/components/layouts/Layout";
 import LoadingPage from "~/components/pages/LoadingPage";
 import React, { useEffect, useState } from "react";
 import SEO, { DefaultSEO } from "~/components/layouts/SEO";
-import { type GetServerSidePropsResult, type GetServerSideProps } from "next";
-import { getEvent } from "~/server/api/routers/event";
-import { prisma } from "~/server/db";
+import {
+  type GetServerSidePropsResult,
+  type PreviewData,
+  type GetServerSidePropsContext,
+} from "next";
 import EventModal from "~/components/Events/EventModal";
-import { type Event } from "@prisma/client";
-import { api } from "~/util/api";
 import { Tab } from "@headlessui/react";
-import { Events } from "~/util/data/events";
+import { Events, FeaturedEvent } from "~/util/data/events";
 import { Executives, Subcommittee } from "~/util/data/team";
+import { type ParsedUrlQuery } from "querystring";
+import { type Event } from "~/util/types";
 
 interface Props {
   formattedTitle: string;
@@ -34,17 +36,13 @@ const Index: React.FC<Props> = ({
 }) => {
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
-  const { isLoading: featuredEventLoading, data: featuredEventData } =
-    api.main.getFeaturedEvent.useQuery();
 
   useEffect(() => {
     console.log("event: ", selectedEvent);
     if (typeof window !== undefined && selectedEvent) setShowModal(true);
-    if (!featuredEventLoading) {
-      setTimeout(() => {
-        setLoading(false);
-      }, 500);
-    }
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -107,11 +105,9 @@ const Index: React.FC<Props> = ({
                 image="/section/section_panel_events.webp"
               />
 
-              {featuredEventData && (
-                <div className="h-full max-h-96 w-full">
-                  <EventTile data={featuredEventData} />
-                </div>
-              )}
+              <div className="h-full max-h-96 w-full">
+                <EventTile data={FeaturedEvent} />
+              </div>
               <div className="flex h-full w-full flex-row justify-center p-2 md:h-screen md:p-8">
                 <div className="h-full w-full md:w-11/12">
                   <EventMangaPages data={Events} />
@@ -190,9 +186,12 @@ const Index: React.FC<Props> = ({
 };
 
 // get the relevant information for SEO and event modal
-export const getServerSideProps: GetServerSideProps<Props> = async ({
+export const getServerSideProps = ({
   query,
-}): Promise<GetServerSidePropsResult<Props>> => {
+}: GetServerSidePropsContext<
+  ParsedUrlQuery,
+  PreviewData
+>): GetServerSidePropsResult<Props> => {
   const event = query.event as string;
 
   // Define your default SEO values
@@ -200,14 +199,13 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
   let formattedDescription = DefaultSEO.description;
   let preferredImage = DefaultSEO.image ?? "";
 
-  const res = await getEvent({ prisma: prisma, id: event }).catch(() =>
-    console.error("encountered error while fetching event"),
-  );
+  const res = Events.find((e) => e.id === event);
 
   if (event && typeof event === "string" && res) {
-    formattedTitle = res.title + " | OPsoc";
-    formattedDescription = res.description ?? DefaultSEO.description;
+    formattedTitle = res.event.title + " | OPsoc";
+    formattedDescription = res.event.description ?? DefaultSEO.description;
     preferredImage = res.image ?? DefaultSEO.image ?? "";
+
     return {
       props: {
         formattedTitle,

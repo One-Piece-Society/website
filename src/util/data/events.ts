@@ -1,6 +1,26 @@
 import { type EventPanel } from "../types";
 
-export const FeaturedEvent = {};
+export const FeaturedEvent = {
+  id: "clonv06az00000z6o6apyf8si",
+  title: "Big Mom's Tea Party",
+  description:
+    "❗YOU HAVE BEEN INVITED❗... to attend Big Mom's Tea Party (hosted proudly by OPSoc 😁)  As uni wraps up for the year, come have one last blast to cool off before getting on that exam grindset 😭  And what better way to relax than drinking a cup ☕ of refreshing, soothing, pacifying, tranquilizing and embracing Tea and Coffee 🥰  So come visit us at the Colombo Building to get your free hot drink and a sweet treat to go along with it!!!",
+  startTime: new Date("2023-11-15T02:00:00.000Z"),
+  endTime: new Date("2023-11-15T04:00:00.000Z"),
+  locationLink: "Colombo Building",
+  image: "https://i.imgur.com/evP2srr.png",
+  online: false,
+  createdAt: new Date("2023-11-07T04:57:00.395Z"),
+  updatedAt: new Date("2023-11-18T03:35:54.648Z"),
+  featured: true,
+  imageGallery: [
+    "https://i.imgur.com/evP2srr.png",
+    "https://i.imgur.com/03MTw99.png",
+    "https://i.imgur.com/xMjlRVb.jpg",
+    "https://i.imgur.com/1dVn76C.jpg",
+  ],
+  Panel: [],
+};
 
 export const Events: EventPanel[] = [
   {
