@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { type Team } from "@prisma/client";
 import { motion } from "framer-motion";
 import { springTransition } from "~/util/animation";
+import { type Team } from "~/util/types";
 
 interface Props {
   data: Team[];
