@@ -139,40 +139,51 @@ const Index: React.FC<Props> = ({
               <div className="flex h-full w-full flex-row justify-center p-2 md:p-8">
                 <div className="h-full w-full py-4 md:container md:py-16">
                   <Tab.Group>
-                    <Tab.List>
-                      {Executives?.filter(
-                        (value, index, self) => self.indexOf(value) === index,
-                      ).map((e, i) => (
-                        <Tab key={i}>
-                          <h1 className="pb-4 font-body text-2xl font-semibold md:pb-8 md:text-5xl">
-                            2024
-                          </h1>
-                        </Tab>
-                      ))}
+                    <Tab.List className="space-x-4">
+                      {Array.from(
+                        new Set(Executives.map((executive) => executive.year)),
+                      )
+                        .sort()
+                        .reverse()
+                        .map((year, i) => (
+                          <Tab key={i}>
+                            <h1 className="pb-4 font-body text-2xl font-semibold md:pb-8 md:text-5xl">
+                              {year}
+                            </h1>
+                          </Tab>
+                        ))}
                     </Tab.List>
                     <Tab.Panels>
-                      <Tab.Panel>
-                        <h1 className="pb-4 font-body text-2xl font-semibold md:pb-8 md:text-5xl">
-                          Executives
-                        </h1>
-                        <TeamTiles
-                          data={Executives.sort((a, b) =>
-                            a.order >= b.order ? 1 : -1,
-                          )}
-                        />
-                        {Subcommittee && (
-                          <>
-                            <h1 className="py-4 font-body text-2xl font-semibold md:py-8 md:text-5xl">
-                              Subcommittee
+                      {Array.from(
+                        new Set(Executives.map((executive) => executive.year)),
+                      )
+                        .sort()
+                        .reverse()
+                        .map((year, i) => (
+                          <Tab.Panel key={i}>
+                            <h1 className="pb-4 font-body text-2xl font-semibold md:pb-8 md:text-5xl">
+                              Executives
                             </h1>
                             <TeamTiles
-                              data={Subcommittee.sort((a, b) =>
+                              data={Executives.sort((a, b) =>
                                 a.order >= b.order ? 1 : -1,
-                              )}
+                              ).filter((e) => e.year === year)}
                             />
-                          </>
-                        )}
-                      </Tab.Panel>
+                            {Subcommittee.filter((e) => e.year === year)
+                              .length > 0 && (
+                              <>
+                                <h1 className="py-4 font-body text-2xl font-semibold md:py-8 md:text-5xl">
+                                  Subcommittee
+                                </h1>
+                                <TeamTiles
+                                  data={Subcommittee.sort((a, b) =>
+                                    a.order >= b.order ? 1 : -1,
+                                  ).filter((e) => e.year === year)}
+                                />
+                              </>
+                            )}
+                          </Tab.Panel>
+                        ))}
                     </Tab.Panels>
                   </Tab.Group>
                 </div>
