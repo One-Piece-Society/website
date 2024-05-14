@@ -1,14 +1,13 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { type Team } from "@prisma/client";
 import { motion } from "framer-motion";
 import { springTransition } from "~/util/animation";
+import { type Team } from "~/util/types";
 
 interface Props {
   data: Team[];
 }
 
 const TeamTiles: React.FC<Props> = ({ data }) => {
-  const defaultTeamImage = "https://i.imgur.com/MV1YNNw.png";
+  const defaultTeamImage = "/opsoc-logo.webp"; // TODO: Add Default Images for Team Members
   return (
     <div className="grid h-full w-full grid-flow-row grid-cols-2 gap-8 md:grid-cols-3 xl:grid-cols-4">
       {data.map((e, i) => (

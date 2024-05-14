@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
-import { type Event } from "@prisma/client";
 import EventModal from "./EventModal";
+import { type Event } from "~/util/types";
 interface Props {
   data: Event;
 }

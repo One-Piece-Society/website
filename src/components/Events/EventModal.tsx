@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { Dialog, Transition } from "@headlessui/react";
 import {
   BuildingOffice2Icon,
@@ -10,11 +8,11 @@ import {
   ShareIcon,
   XCircleIcon,
 } from "@heroicons/react/24/outline";
-import { type Event } from "@prisma/client";
 import Image from "next/image";
 import { Fragment, useState } from "react";
 import ImageGallery from "../Image/ImageGallery";
 import { baseUrl } from "../layouts/SEO";
+import { type Event } from "~/util/types";
 
 interface Props {
   data: Event | undefined;

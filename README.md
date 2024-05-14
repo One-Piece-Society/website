@@ -1,6 +1,6 @@
 # 🏴‍☠️ UNSW One Piece Society's Website
 
-![logo](https://i.imgur.com/iGg3mVL.png)
+![logo](/public/opsoc-banner-art.webp)
 
 ## 👥 Team
 
